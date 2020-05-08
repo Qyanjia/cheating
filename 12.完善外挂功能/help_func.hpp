@@ -189,19 +189,19 @@ void get_module_info(handle process_handle, dword process_id, const char* module
 	warning("!!!查找不到指定模块!!!");
 }
 
-int find_pattern(handle process, struct module_information& module, const char* pattern, int index = 0)
+int find_pattern(handle process, struct module_information& module, const char* pattern, int index = 0, int offset = 0)
 {
-	const char* start = module.module_data;
+	const char* start = module.module_data + offset;
 	const int length = strlen(pattern);
 
 	int count = 0;
-	for (int i = 0; i < module.module_size; i++)
+	for (int i = 0; i < module.module_size - offset; i++)
 	{
 		if (start[i] == pattern[0] || pattern[0] == '?')
 		{
 			int j = 1;
 			for (; j < length; j++) if (start[i + j] != pattern[j] && pattern[j] != '?') break;
-			if (j == length && count++ == index) return module.module_address + i;
+			if (j == length && count++ == index) return module.module_address + i + offset;
 		}
 	}
 
@@ -209,19 +209,19 @@ int find_pattern(handle process, struct module_information& module, const char* 
 	return -1;
 }
 
-void show_all_pattern(handle process, struct module_information& module, const char* pattern)
+void show_all_pattern(handle process, struct module_information& module, const char* pattern, int offset = 0)
 {
-	const char* start = module.module_data;
+	const char* start = module.module_data + offset;
 	const int length = strlen(pattern);
 
 	int count = 0;
-	for (int i = 0; i < module.module_size; i++)
+	for (int i = 0; i < module.module_size - offset; i++)
 	{
 		if (start[i] == pattern[0] || pattern[0] == '?')
 		{
 			int j = 1;
 			for (; j < length; j++) if (start[i + j] != pattern[j] && pattern[j] != '?') break;
-			if (j == length) printf("address : %8x \n", module.module_address + i);
+			if (j == length) printf("address : %8x \n", module.module_address + i + offset);
 		}
 	}
 

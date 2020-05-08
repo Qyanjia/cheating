@@ -208,9 +208,10 @@ void initialize_address(const char* process_name)
 	get_module_info(process_handle, process_id, "client_panorama.dll", client_panorama_module);
 
 	int matrix_address = find_pattern(process_handle, client_panorama_module, "\x80\xBF??\xE0\xC0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\xBF", 1) + 0x16;
-	int angle_address = find_pattern(process_handle, engine_module, "\x70\x9D??\x70\x37??\x50\x0B??\x01\x00\x00\x00\x70\x9D??\x70\x9D", 0) + 0x40;
-	int self_address = find_pattern(process_handle, client_panorama_module, "\x20\xE3??\x30\x91??\x08\x20\x08\x00\xE8\x45??\x28\xFB??\x4C\xE3??\xC8\xA4?\x04\x04", 0) + 0x50;
-	int players_address = find_pattern(process_handle, client_panorama_module, "\x40??\x80???\x10\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00?\x00\x00\x00\xFF\xFF\xFF\xFF", 6) + 0x9B;
+	int angle_address = find_pattern(process_handle, engine_module, "\x70\x9D??\x70\x37??\x50???\x01\x00\x00\x00\x70\x9D??\x70\x9D", 0, 0x580000) + 0x40;
+	int self_address = find_pattern(process_handle, client_panorama_module, "\xFC??\x01\x00\x00\x00?\xE3??????\x08\x20\x08\x00?????\xFB", 0, 0xD2F000) + 0x57;
+	int players_address = find_pattern(process_handle, client_panorama_module, "\x40???????\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00?\x00\x00\x00\xFF\xFF\xFF\xFF", 0, 0x4D40000) + 0x9B;
+	//show_all_pattern(process_handle, client_panorama_module, "\xFC??\x01\x00\x00\x00?\xE3??????\x08\x20\x08\x00?????\xFB",0xD2F000);
 
 #ifdef DEBUG_STRING
 	printf("自己矩阵基地址 : %8x \n", matrix_address);
@@ -310,7 +311,7 @@ void get_aimbot_angle(float* self_location, float* player_location, float* aim_a
 {
 	float x = self_location[0] - player_location[0];
 	float y = self_location[1] - player_location[1];
-	float z = self_location[2] - player_location[2] + 65.0f + 15.0f;
+	float z = self_location[2] - player_location[2] + 65.0f;
 	if (squat) z -= 15.0f;
 	z += recoil;
 
@@ -378,7 +379,7 @@ void cheats_doing()
 	render_player_box(players);
 
 	if(get_mouse_left_down() || get_shot_state(players)) aimbot_players(players);
-	//else if(get_open_mirror_state(players)) aimbot_players(players);
+	else if(get_open_mirror_state(players)) aimbot_players(players);
 }
 
 //开始操作
