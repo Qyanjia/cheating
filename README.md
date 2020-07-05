@@ -42,6 +42,8 @@ Visual Studio(VS) - 编写和编译C++代码，应该哪一个版本的都没问
 
 [hwid  --  应用层和内核层一起防锁](https://github.com/btbd/hwid)
 
+[negativespoofer  --  SMBIOS tables修改](https://github.com/SamuelTulach/negativespoofer)
+
 ## 过检测
 [kdmapper  --  国外用的人还蛮多,驱动程序手动映射器](https://github.com/z175/kdmapper)
 
@@ -83,8 +85,12 @@ Visual Studio(VS) - 编写和编译C++代码，应该哪一个版本的都没问
 
 [HLeaker  -- 一个使用DuplicateHandle的例子](https://github.com/Schnocker/HLeaker)
 
+[vmread  --  ](https://github.com/h33p/vmread)
+
 ## 相关库
 [nt_wrapper  --  更快更容易更难反编译](https://github.com/JustasMasiulis/nt_wrapper)
+
+[skCrypter  --  C++11的轻量级字符串加密库](https://github.com/skadro-official/skCrypter)
 
 ## 过VAC检测
 [VAC Bypass  --  看了一下,用Dll注入Hook相关检测函数](https://github.com/danielkrupinski/VAC-Bypass)
@@ -95,6 +101,11 @@ Visual Studio(VS) - 编写和编译C++代码，应该哪一个版本的都没问
 
 ## CS:GO内挂
 [Osiris  --  将近1k个Star,功能齐全,应该蛮多人用的哦](https://github.com/danielkrupinski/Osiris)
+
+## APEX外挂
+[ApexGaming.py  --  python写的](https://github.com/AnusReaper/ApexGaming.py)
+
+[EzApexDMAAimbot  --  APEX辉光自瞄](https://github.com/Y33Tcoder/EzApexDMAAimbot)
 
 ## 相关网站
 
