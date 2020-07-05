@@ -36,6 +36,66 @@ Visual Studio(VS) - 编写和编译C++代码，应该哪一个版本的都没问
 ## 星星
 教程拿走，给我点一个Star？哈哈哈
 
+## 防锁机
+
+[wmi-static-spoofer  --  告诉你怎么样防止游戏锁电脑硬件](https://github.com/Alex3434/wmi-static-spoofer)
+
+[hwid  --  应用层和内核层一起防锁](https://github.com/btbd/hwid)
+
+## 过检测
+[kdmapper  --  国外用的人还蛮多,驱动程序手动映射器](https://github.com/z175/kdmapper)
+
+[kdmapper-1803-1903  --  同上](https://github.com/alxbrn/kdmapper-1803-1903)
+
+[Kernel_Driver_Hack  --  见名知意](https://github.com/TheCruZ/Kernel_Driver_Hack)
+
+[ScyllaHide  --  游戏有反调试?那我们就用反反调试!](https://github.com/x64dbg/ScyllaHide)
+
+[kernel-read-write-using-ioctl  --  简单的ioctl内核读写](https://github.com/beans42/kernel-read-write-using-ioctl)
+
+[efi-memory  --  EFI驱动读写程序](https://github.com/SamuelTulach/efi-memory)
+
+[EfiGuard  --  禁用PatchGuard和驱动程序签名强制DSE](https://github.com/Mattiwatti/EfiGuard)
+
+[EAC Bypass  --  调戏EAC保护的游戏](https://github.com/Schnocker/EAC_dbp)
+
+[Kernelmode-manual-mapping-through-IAT  --  不需要创建线程的Dll注入器](https://github.com/mactec0/Kernelmode-manual-mapping-through-IAT)
+
+[Splendid Implanter  --  告诉你怎么绕过BE](https://github.com/haram/splendid_implanter)
+
+[BattlEye  --  绕过BE,堡垒之夜也能用?](https://github.com/Schnocker/NoEye)
+
+[access  --  不需要句柄也能访问游戏进程](https://github.com/btbd/access)
+
+[modmap  --  模块扩展手动映射器](https://github.com/btbd/modmap)
+
+[drvmap  --  似乎也是一个驱动映射](https://github.com/not-wlan/drvmap)
+
+[NoBastian  --  一个应用层的绕过例子](https://github.com/mlghuskie/NoBastian)
+
+[EUPMAccess  --  物理内存的访问](https://github.com/waryas/EUPMAccess/tree/master/EnablePhysicalMemory)
+
+[KernelBhop  --  驱动级的读写](https://github.com/Zer0Mem0ry/KernelBhop)
+
+[DSEFix  --  Windows x64驱动程序签名强制替代](https://github.com/hfiref0x/DSEFix)
+
+[smap  --  DLL手动映射器](https://github.com/btbd/smap)
+
+[HLeaker  -- 一个使用DuplicateHandle的例子](https://github.com/Schnocker/HLeaker)
+
+## 相关库
+[nt_wrapper  --  更快更容易更难反编译](https://github.com/JustasMasiulis/nt_wrapper)
+
+## 过VAC检测
+[VAC Bypass  --  看了一下,用Dll注入Hook相关检测函数](https://github.com/danielkrupinski/VAC-Bypass)
+
+[VAC  --  介绍了VAC是如何检测作弊的](https://github.com/danielkrupinski/VAC)
+
+[VAC Bypass Loader  --  启动一个没有VAC的Steam,我尝试不行,可能要稍作调试](https://github.com/danielkrupinski/VAC-Bypass-Loader)
+
+## CS:GO内挂
+[Osiris  --  将近1k个Star,功能齐全,应该蛮多人用的哦](https://github.com/danielkrupinski/Osiris)
+
 ## 相关网站
 
 [一号选手](https://www.unknowncheats.me/forum/index.php):一个国外的辅助论坛，CSGO、使命、APEX、CF.....的源码、地址、偏移、思路.......
