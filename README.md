@@ -49,6 +49,8 @@ Visual Studio(VS) - 编写和编译C++代码，应该哪一个版本的都没问
 
 [kdmapper-1803-1903  --  同上](https://github.com/alxbrn/kdmapper-1803-1903)
 
+[kdmapper  --  这个是Win10的1909版本的](https://github.com/Dark7oveRR/kdmapper)
+
 [Kernel_Driver_Hack  --  见名知意](https://github.com/TheCruZ/Kernel_Driver_Hack)
 
 [ScyllaHide  --  游戏有反调试?那我们就用反反调试!](https://github.com/x64dbg/ScyllaHide)
@@ -109,13 +111,10 @@ Visual Studio(VS) - 编写和编译C++代码，应该哪一个版本的都没问
 
 ## 相关网站
 
-[一号选手](https://www.unknowncheats.me/forum/index.php):一个国外的辅助论坛，CSGO、使命、APEX、CF.....的源码、地址、偏移、思路.......
+[一号选手-英文](https://www.unknowncheats.me/forum/index.php):一个国外的辅助论坛，CSGO、使命、APEX、CF.....的源码、地址、偏移、思路.......
 
-[二号选手](https://www.freebuf.com/news/139515.html):一个国内的网站，偏安全方面的
-
-[三号选手](https://gslab.qq.com/portal.php?mod=view&aid=168):一个国内的网站,游戏安全方面的
-
-[四号选手](https://vmcall.blog/):一个国外的个人网站，讲解BE保护的
+[二号选手-英文](https://guidedhacking.com/)
+这是一个真正游戏作弊教程网站
 
 
 
