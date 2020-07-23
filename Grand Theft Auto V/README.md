@@ -2,8 +2,6 @@
 
 好吧,这里是GTA5相关
 
-## 给我点个Star咯 ^_^ 让我有更多动力给你们分享更多教程
-
 ## 分三个内容教学视频
 
 1.刷等级
@@ -13,8 +11,9 @@
 3.辅助使用
 
 ## 辅助源码和程序
-[源码](https://github.com/FiYHer/gta5_cheats_1.50)
-[程序](https://github.com/FiYHer/gta5_cheats_1.50/releases)
+[辅助源码](https://github.com/FiYHer/gta5_cheats_1.50)
+[辅助程序](https://github.com/FiYHer/gta5_cheats_1.50/releases)
+[GTAHaXUI v2 for 1.50程序下载 - 提取码:d724](https://pan.baidu.com/s/1SMWwAymbKsVmIy0cgd2_oQ)
 
 [在线观看 - 刷钱](https://www.ixigua.com/6852550551683793415/?utm_source=xiguastudio)
 
