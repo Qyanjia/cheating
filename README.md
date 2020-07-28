@@ -32,18 +32,26 @@
 
 [kdmapper-1909](https://github.com/Dark7oveRR/kdmapper)
 
-[DSEFix](https://github.com/hfiref0x/DSEFix)
-
-## 绕过游戏反调试
-[ScyllaHide](https://github.com/x64dbg/ScyllaHide)
-
-## 禁用PatchGuard
 [EfiGuard](https://github.com/Mattiwatti/EfiGuard)
 
+[DSEFix](https://github.com/hfiref0x/DSEFix)
+
+[EfiDump](https://github.com/SamuelTulach/EfiDump)
+
+[TDL](https://github.com/hfiref0x/TDL)
+
+[UPGDSED](https://github.com/hfiref0x/UPGDSED)
+
+[Shark](https://github.com/9176324/Shark)
+
+[DisableWin10PatchguardPoc](https://github.com/killvxk/DisableWin10PatchguardPoc)
+
 ## 内核读写驱动
-[Kernel_Driver_Hack  ->  见名知意](https://github.com/TheCruZ/Kernel_Driver_Hack)
+[Kernel_Driver_Hack](https://github.com/TheCruZ/Kernel_Driver_Hack)
 
 [kernel-read-write-using-ioctl](https://github.com/beans42/kernel-read-write-using-ioctl)
+
+[km-um-communication](https://github.com/alxbrn/km-um-communication)
 
 [efi-memory](https://github.com/SamuelTulach/efi-memory)
 
@@ -51,7 +59,7 @@
 
 [EFI_Driver_Access](https://github.com/TheCruZ/EFI_Driver_Access)
 
-[EfiDump](https://github.com/SamuelTulach/EfiDump)
+[Kernel-Bridge](https://github.com/HoShiMin/Kernel-Bridge)
 
 ## DLL注入软件
 [Kernelmode-manual-mapping-through-IAT](https://github.com/mactec0/Kernelmode-manual-mapping-through-IAT)
@@ -61,11 +69,6 @@
 [drvmap](https://github.com/not-wlan/drvmap)
 
 [smap](https://github.com/btbd/smap)
-
-## 绕过BattlEye检测
-[Splendid Implanter](https://github.com/haram/splendid_implanter)
-
-[BattlEye](https://github.com/Schnocker/NoEye)
 
 ## 应用层内存读取技巧
 [access](https://github.com/btbd/access)
@@ -78,14 +81,28 @@
 
 [vmread](https://github.com/h33p/vmread)
 
+## 绕过游戏反调试
+[ScyllaHide](https://github.com/x64dbg/ScyllaHide)
+
 ## 帮助库
 [nt_wrapper](https://github.com/JustasMasiulis/nt_wrapper)
+
+## 反汇编
+[zydis](https://github.com/zyantific/zydis)
+
+## 挂钩库
+[HookLib](https://github.com/HoShiMin/HookLib)
 
 ## 字符串加密
 [skCrypter](https://github.com/skadro-official/skCrypter)
 
 ## 隐藏驱动
 [hidden](https://github.com/JKornev/hidden)
+
+## 绕过BattlEye检测
+[Splendid Implanter](https://github.com/haram/splendid_implanter)
+
+[BattlEye](https://github.com/Schnocker/NoEye)
 
 ## 绕过EAC检测
 [EAC_dbp](https://github.com/Schnocker/EAC_dbp)
@@ -104,6 +121,17 @@
 
 [RPM-WPM-project](https://github.com/mikeeek/RPM-WPM-project)
 
+[GarHal_CSGO](https://github.com/dretax/GarHal_CSGO)
+
+[heck_exe](https://github.com/h1ru5/heck_exe)
+
+[wok-csgo-sdk-v2](https://github.com/lagcomp/wok-csgo-sdk-v2)
+
+## R6辅助
+[R6SDK](https://github.com/weak1337/R6SDK)
+
+[Internal-Rainbow-Six-Cheat](https://github.com/NMan1/Internal-Rainbow-Six-Cheat)
+
 ## APEX辅助
 [ApexGaming.py](https://github.com/AnusReaper/ApexGaming.py)
 
@@ -112,35 +140,16 @@
 ## GTA5辅助
 [gta5_cheats_1.50](https://github.com/FiYHer/gta5_cheats_1.50)
 
+[pHake](https://github.com/xhz8s/pHake)
+
+[subVerison_GTAV_Hack](https://github.com/AmazingPP/subVerison_GTAV_Hack)
+
+[GTA5_Cheats_Native_Menu](https://github.com/expvintl/GTA5_Cheats_Native_Menu)
+
 ## 相关网站
 
 [一号选手 - 英文](https://www.unknowncheats.me/forum/index.php):一个国外的辅助论坛，CSGO、使命、APEX、CF.....的源码、地址、偏移、思路.......
 
 [二号选手 - 英文](https://guidedhacking.com/)
 这是一个真正游戏作弊教程网站
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
