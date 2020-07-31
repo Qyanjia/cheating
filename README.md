@@ -1,22 +1,23 @@
 # 前言
 
-## 说明
+## 说明 :green_book:
 作者大学生一个,技术水平有限,而且学习方向也不是破解逆向相关的,有错误的地方还望大佬指点。
 
-## 再次说明
+## 再次说明 :rotating_light:
 教程以交流技术为主要目的,只学技术。
 
-## 当前教程
+## 当前教程 :zap:
 1.CSGO
 
 2.GTA5
 
-## 未来计划
-利用驱动过反作弊教程
+3.驱动
 
+## 未来计划 :pushpin:
 其它游戏相关教程
 
-## 给我点个Star咯 ^_^ 让我有更多动力给你们分享更多教程
+## 支持作者 :two_hearts:
+给我点个Star咯 ^_^ 让我有更多动力给你们分享更多教程
 
 ## 防止游戏锁定电脑硬件
 [wmi-static-spoofer](https://github.com/Alex3434/wmi-static-spoofer)
@@ -24,6 +25,8 @@
 [hwid](https://github.com/btbd/hwid)
 
 [negativespoofer](https://github.com/SamuelTulach/negativespoofer)
+
+[mutant](https://github.com/SamuelTulach/mutante)
 
 ## 驱动映射程序
 [kdmapper](https://github.com/z175/kdmapper)
@@ -126,6 +129,9 @@
 [heck_exe](https://github.com/h1ru5/heck_exe)
 
 [wok-csgo-sdk-v2](https://github.com/lagcomp/wok-csgo-sdk-v2)
+
+[SpyExternal1337hax](https://github.com/0TheSpy/SpyExternal1337hax)
+
 
 ## R6辅助
 [R6SDK](https://github.com/weak1337/R6SDK)
