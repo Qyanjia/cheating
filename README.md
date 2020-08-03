@@ -110,6 +110,9 @@ QQ : 2653290887
 ## 隐藏驱动
 [hidden](https://github.com/JKornev/hidden)
 
+## CSGO偏移
+[hazedumper](https://github.com/frk1/hazedumper/blob/master/csgo.hpp)
+
 ## 绕过BattlEye检测
 [Splendid Implanter](https://github.com/haram/splendid_implanter)
 
