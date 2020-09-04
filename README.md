@@ -36,12 +36,18 @@ QQ : 2653290887
 
 [mutant](https://github.com/SamuelTulach/mutante)
 
+[VolumeSerial](https://github.com/lallousx86/VolumeSerial)
+
+[hdd_serial_spoofer](https://github.com/namazso/hdd_serial_spoofer)
+
 ## 驱动映射程序
 [kdmapper](https://github.com/z175/kdmapper)
 
 [kdmapper-1803-1903](https://github.com/alxbrn/kdmapper-1803-1903)
 
 [kdmapper-1909](https://github.com/Dark7oveRR/kdmapper)
+
+[gdrv-loader](https://github.com/alxbrn/gdrv-loader)
 
 [EfiGuard](https://github.com/Mattiwatti/EfiGuard)
 
@@ -72,6 +78,8 @@ QQ : 2653290887
 
 [Kernel-Bridge](https://github.com/HoShiMin/Kernel-Bridge)
 
+[memdrv](https://github.com/SamuelTulach/memdrv)
+
 ## DLL注入软件
 [Kernelmode-manual-mapping-through-IAT](https://github.com/mactec0/Kernelmode-manual-mapping-through-IAT)
 
@@ -92,11 +100,23 @@ QQ : 2653290887
 
 [vmread](https://github.com/h33p/vmread)
 
+[LSASS-Usermode-Bypass](https://github.com/ContionMig/LSASS-Usermode-Bypass)
+
 ## 绕过游戏反调试
 [ScyllaHide](https://github.com/x64dbg/ScyllaHide)
 
 ## 帮助库
 [nt_wrapper](https://github.com/JustasMasiulis/nt_wrapper)
+
+[KDU](https://github.com/hfiref0x/KDU)
+
+[KasperskyHook](https://github.com/iPower/KasperskyHook)
+
+[TitanHide](https://github.com/mrexodia/TitanHide)
+
+[AntiCheat-Testing-Framework](https://github.com/niemand-sec/AntiCheat-Testing-Framework)
+
+[minhook](https://github.com/TsudaKageyu/minhook)
 
 ## 反汇编
 [zydis](https://github.com/zyantific/zydis)
@@ -110,6 +130,8 @@ QQ : 2653290887
 ## 隐藏驱动
 [hidden](https://github.com/JKornev/hidden)
 
+[HideDriver](https://github.com/Sqdwr/HideDriver)
+
 ## CSGO偏移
 [hazedumper](https://github.com/frk1/hazedumper/blob/master/csgo.hpp)
 
@@ -118,10 +140,19 @@ QQ : 2653290887
 
 [BattlEye](https://github.com/Schnocker/NoEye)
 
+[BE-Bypass](https://github.com/UCRaptor/BE-Bypass)
+
+## UEFI
+[umap](https://github.com/btbd/umap)
+
 ## 绕过EAC检测
 [EAC_dbp](https://github.com/Schnocker/EAC_dbp)
 
 [Eac-Bypass](https://github.com/Flashyyyyyy/Eac-Bypass)
+
+[EACReversing](https://github.com/adrianyy/EACReversing)
+
+[CVEAC-2020](https://github.com/thesecretclub/CVEAC-2020)
 
 ## 绕过VAC检测
 [VAC Bypass](https://github.com/danielkrupinski/VAC-Bypass)
@@ -129,6 +160,11 @@ QQ : 2653290887
 [VAC](https://github.com/danielkrupinski/VAC)
 
 [VAC Bypass Loader](https://github.com/danielkrupinski/VAC-Bypass-Loader)
+
+[vac3_inhibitor](https://github.com/zyhp/vac3_inhibitor)
+
+## 逃离塔克夫辅助
+[Nathans-Tarkov-Radar-Public](https://github.com/CplNathan/Nathans-Tarkov-Radar-Public)
 
 ## CS:GO辅助
 [Osiris](https://github.com/danielkrupinski/Osiris)
@@ -143,6 +179,9 @@ QQ : 2653290887
 
 [SpyExternal1337hax](https://github.com/0TheSpy/SpyExternal1337hax)
 
+[NIXWARE-CSGO](https://github.com/Shaxzy/NIXWARE-CSGO)
+
+[Gladiatorcheatz-v2.1](https://github.com/sstokic-tgm/Gladiatorcheatz-v2.1)
 
 ## R6辅助
 [R6SDK](https://github.com/weak1337/R6SDK)
@@ -163,10 +202,13 @@ QQ : 2653290887
 
 [GTA5_Cheats_Native_Menu](https://github.com/expvintl/GTA5_Cheats_Native_Menu)
 
+## Pubg Mobile
+[pubg_mobile_memory_hacking_examples](https://github.com/atiksoftware/pubg_mobile_memory_hacking_examples)
+
 ## 相关网站
 
-[一号选手 - 英文](https://www.unknowncheats.me/forum/index.php):一个国外的辅助论坛，CSGO、使命、APEX、CF.....的源码、地址、偏移、思路.......
+[ 一号选手 - 英文 ](https://www.unknowncheats.me/forum/index.php):一个国外的辅助论坛，CSGO、使命、APEX、CF.....的源码、地址、偏移、思路.......
 
-[二号选手 - 英文](https://guidedhacking.com/)
+[ 二号选手 - 英文 ](https://guidedhacking.com/):
 这是一个真正游戏作弊教程网站
 

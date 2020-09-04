@@ -111,10 +111,10 @@ void get_player_list(struct player_list* players)
 	{
 		int player_base_address;
 		read_memory(process, (g_players_address + i * 0x10), &player_base_address, sizeof(int));
-		if(player_base_address == 0) continue;
+		if (player_base_address == 0) continue;
 
 		read_memory(process, player_base_address + 0x100, &players[i].blood, sizeof(int));
-		if(players[i].blood <= 0) continue;
+		if (players[i].blood <= 0) continue;
 
 		players[i].effective = true;
 		players[i].aimbot_len = 9999;
@@ -277,7 +277,7 @@ void render_player_box(player_list* players)
 			}
 			render_rect(color, x, y, w, h);
 			render_player_blood(players[i].blood, x - 5, y, h);
-			render_underline(color,window_w, window_h, x + (w / 2), y + h);
+			render_underline(color, window_w, window_h, x + (w / 2), y + h);
 		}
 	}
 }
@@ -307,7 +307,7 @@ void set_current_angle(float* angle)
 }
 
 //获取自瞄角度
-void get_aimbot_angle(float* self_location, float* player_location, float* aim_angle, bool squat,float recoil)
+void get_aimbot_angle(float* self_location, float* player_location, float* aim_angle, bool squat, float recoil)
 {
 	float x = self_location[0] - player_location[0];
 	float y = self_location[1] - player_location[1];
@@ -318,7 +318,7 @@ void get_aimbot_angle(float* self_location, float* player_location, float* aim_a
 	const float pi = 3.1415f;
 	aim_angle[0] = (float)atan(z / sqrt(x * x + y * y)) / pi * 180.f;
 	aim_angle[1] = (float)atan(y / x);
-	
+
 	if (x >= 0.0f && y >= 0.0f) aim_angle[1] = aim_angle[1] / pi * 180.0f - 180.0f;
 	else if (x < 0.0f && y >= 0.0f) aim_angle[1] = aim_angle[1] / pi * 180.0f;
 	else if (x < 0.0f && y < 0.0f) aim_angle[1] = aim_angle[1] / pi * 180.0f;
@@ -344,27 +344,27 @@ int get_recent_head_location(player_list* players, float* self_location)
 //自瞄开启
 void aimbot_players(player_list* player, float max_fov = 30)
 {
-	if (get_jump_state(player) == true) return;
+	if (get_jump_state(player) == true) return;//跳跃判断
 
 	float self_location[3];
-	get_self_location(self_location);
+	get_self_location(self_location);//设置自己标识
 
-	int aim_index = get_recent_head_location(player, self_location);
+	int aim_index = get_recent_head_location(player, self_location);//取得最近人物索引
 	if (aim_index == -1) return;
 
 	float current_angle[2];
-	get_current_angle(current_angle);
+	get_current_angle(current_angle);//获取当前角度
 
-	bool squat = get_squat_state(player);
+	bool squat = get_squat_state(player);//获取蹲下状态
 
 	float aim_angle[2];
-	get_aimbot_angle(self_location, player[aim_index].head_bone, aim_angle, squat, 0.0f);
+	get_aimbot_angle(self_location, player[aim_index].head_bone, aim_angle, squat, 0.0f); //计算自瞄角度
 
-	if (abs((int)aim_angle[0] - (int)current_angle[0]) > max_fov 
-		|| abs((int)aim_angle[1] - (int)current_angle[1]) > max_fov)
+	if (abs((int)aim_angle[0] - (int)current_angle[0]) > max_fov
+		|| abs((int)aim_angle[1] - (int)current_angle[1]) > max_fov)//角度判断
 		return;
 
-	set_current_angle(aim_angle);
+	set_current_angle(aim_angle);//设置角度
 }
 
 //工作开始
@@ -378,8 +378,8 @@ void cheats_doing()
 
 	render_player_box(players);
 
-	if(get_mouse_left_down() || get_shot_state(players)) aimbot_players(players);
-	else if(get_open_mirror_state(players)) aimbot_players(players);
+	if (get_mouse_left_down() || get_shot_state(players)) aimbot_players(players);
+	else if (get_open_mirror_state(players)) aimbot_players(players);
 }
 
 //开始操作
@@ -397,5 +397,3 @@ void start_cheats_csgo()
 	initialize_direct3d9(transparent_hwnd);
 	message_handle(game_hwnd, transparent_hwnd);
 }
-
-
