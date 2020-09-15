@@ -63,6 +63,10 @@ QQ : 2653290887
 
 [DisableWin10PatchguardPoc](https://github.com/killvxk/DisableWin10PatchguardPoc)
 
+[PPLKiller](https://github.com/Mattiwatti/PPLKiller)
+
+[ByePg](https://github.com/can1357/ByePg)
+
 ## 内核读写驱动
 [Kernel_Driver_Hack](https://github.com/TheCruZ/Kernel_Driver_Hack)
 
@@ -79,6 +83,8 @@ QQ : 2653290887
 [Kernel-Bridge](https://github.com/HoShiMin/Kernel-Bridge)
 
 [memdrv](https://github.com/SamuelTulach/memdrv)
+
+[MdlReadWriteProcess-MDL](https://github.com/rring0/MdlReadWriteProcess-MDL-)
 
 ## DLL注入软件
 [Kernelmode-manual-mapping-through-IAT](https://github.com/mactec0/Kernelmode-manual-mapping-through-IAT)
@@ -105,6 +111,8 @@ QQ : 2653290887
 ## 绕过游戏反调试
 [ScyllaHide](https://github.com/x64dbg/ScyllaHide)
 
+[Mirage](https://github.com/stonedreamforest/Mirage)
+
 ## 帮助库
 [nt_wrapper](https://github.com/JustasMasiulis/nt_wrapper)
 
@@ -118,11 +126,27 @@ QQ : 2653290887
 
 [minhook](https://github.com/TsudaKageyu/minhook)
 
+[ghidra](https://github.com/NationalSecurityAgency/ghidra)
+
+[cutter](https://github.com/radareorg/cutter)
+
+[Detours](https://github.com/microsoft/Detours)
+
+[ReClass.NET](https://github.com/ReClassNET/ReClass.NET)
+
 ## 反汇编
 [zydis](https://github.com/zyantific/zydis)
 
 ## 挂钩库
 [HookLib](https://github.com/HoShiMin/HookLib)
+
+[DdiMon](https://github.com/tandasat/DdiMon)
+
+[HyperPlatform](https://github.com/tandasat/HyperPlatform)
+
+[kernelhook](https://github.com/adrianyy/kernelhook)
+
+[HyperBone](https://github.com/DarthTon/HyperBone)
 
 ## 字符串加密
 [skCrypter](https://github.com/skadro-official/skCrypter)
@@ -141,6 +165,8 @@ QQ : 2653290887
 [BattlEye](https://github.com/Schnocker/NoEye)
 
 [BE-Bypass](https://github.com/UCRaptor/BE-Bypass)
+
+[BEDaisy](https://github.com/Aki2k/BEDaisy)
 
 ## UEFI
 [umap](https://github.com/btbd/umap)
