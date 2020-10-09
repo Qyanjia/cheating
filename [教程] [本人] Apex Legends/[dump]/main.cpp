@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <regex>
 
 /*
 APEX Dump
@@ -17,12 +18,16 @@ void dump()
 	}
 
 	DWORD32 pid = 0;
-	std::cout << "[+] 输入APEX进程ID" << std::endl;
+	std::cout << "[+] 输入APEX进程ID : ";
 	std::cin >> pid;
 
 	DWORD64 base = 0;
-	std::cout << "[+] 输入APEX进程基址" << std::endl;
+	std::cout << "[+] 输入APEX进程基址 : ";
 	std::cin >> base;
+
+	std::string bin_file;
+	std::cout << "[+] 输入dump文件名称 : ";
+	getline(std::cin, bin_file);
 
 	std::cout << "[+] 目标进程 : " << pid << "\t 目标基址 : 0x" << std::hex << base << std::endl;
 
@@ -87,7 +92,7 @@ void dump()
 	}
 
 	// 创建一个文件
-	HANDLE dump = CreateFileW(L"r5apex.bin", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_COMPRESSED, NULL);
+	HANDLE dump = CreateFileA(bin_file.c_str(), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_COMPRESSED, NULL);
 	if (dump != INVALID_HANDLE_VALUE)
 	{
 		if (WriteFile(dump, data, target_len, NULL, NULL))
