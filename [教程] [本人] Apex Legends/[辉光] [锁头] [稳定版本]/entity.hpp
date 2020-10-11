@@ -152,7 +152,22 @@ public:
 
 public:
 	entity() : m_driver_point(nullptr), m_base(0) {}
+	entity(rm_driver* r, DWORD64 d) : m_driver_point(r), m_base(d) {}
 	~entity() {}
+
+	entity& operator=(entity& e)
+	{
+		m_driver_point = e.m_driver_point;
+		m_base = e.m_base;
+		return *this;
+	}
+
+	/* 有效性判断 */
+	bool empty()
+	{
+		if (m_driver_point == nullptr || m_base == 0) return true;
+		return false;
+	}
 
 	/* 设置基址 */
 	void update(rm_driver* p, DWORD64 b)
@@ -260,5 +275,23 @@ public:
 	Vec3 get_recoil_angle()
 	{
 		return m_driver_point->read<Vec3>(m_base + apex_offsets::m_vecPunchWeapon_Angle);
+	}
+
+	/* 是否是玩家 */
+	bool is_player()
+	{
+		return m_driver_point->read<DWORD64>(m_base + apex_offsets::m_iName) == 125780153691248;
+	}
+
+	/* 是否是电脑玩家 */
+	bool is_npc()
+	{
+		return m_driver_point->read<DWORD32>(m_base + apex_offsets::m_iTeamNum) == 97;
+	}
+
+	/* 是否存活 */
+	bool is_life()
+	{
+		return m_driver_point->read<DWORD32>(m_base + apex_offsets::m_lifeState) == 0;
 	}
 };

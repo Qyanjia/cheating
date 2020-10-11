@@ -24,7 +24,8 @@ namespace apex_offsets
 	static DWORD64 m_ModelName = 0x0030;							// 模型名称
 	static DWORD64 m_fFlags = 0x0098;										// 标识
 	static DWORD64 m_vecAbsOrigin = 0x014c;							// abs原点
-	static DWORD64 m_iTeamNum = 0x0430;								// 团队标识
+	static DWORD64 m_iTeamNum = 0x0430;								// 团队标识		97的时候是电脑人
+	static DWORD64 m_iName = 0x0561;									// 名称标识		125780153691248的时候是玩家
 	static DWORD64 m_vecVelocity = 0x0460;								// 速度
 	static DWORD64 m_bConstrainBetweenEndpoints = 0x0f18;//骨骼
 	static DWORD64 m_localOrigin = 0x0158;								// 本地原点

@@ -13,13 +13,11 @@ private:
 	rm_driver m_driver;		// 读写
 
 	entity m_local;				// 本地玩家
-	matrix_info m_matrix;	// 矩阵信息
 
-	int m_player_num;											// 玩家数量
 	entity m_players[MAX_PLAYERS];					// 玩家列表
 
 public:
-	apex_cheats() : m_player_num(0) {}
+	apex_cheats() {}
 	~apex_cheats() {}
 
 	/* 初始化 */
@@ -51,9 +49,13 @@ public:
 	}
 
 	/* 获取有效玩家 */
-	void get_visiable_player()
+	int get_visiable_player()
 	{
-		m_player_num = 0;
+		// 玩家数量
+		int num = 0;
+
+		// 清空玩家
+		memset(m_players, 0, sizeof(entity) * MAX_PLAYERS);
 
 		// 找出真正的玩家地址
 		for (int i = 0; i < NUM_ENT_ENTRIES; i++)
@@ -61,10 +63,30 @@ public:
 			// 先拿到实例地址
 			DWORD64 addr = g_clients[i].pEntity;
 
-			// 基本判断
+			// 地址为空
 			if (addr == 0) continue;
+
+			// 地址有误
 			if ((addr & 0x07) != 0 || addr >= (1ULL << 48)) continue;
 
+			// 如果是自己
+			if (addr == m_local.m_base) continue;
+
+			entity e(&m_driver, addr);
+
+			// 如果是玩家或者电脑人
+			if (e.is_player() || e.is_npc())
+			{
+				// 没有死亡
+				if (e.get_current_health() > 0 && e.is_life())
+				{
+					// 加入玩家列表
+					m_players[num++] = e;
+				}
+			}
+
+			/*
+			// 类型判断
 			DWORD64 client_networkable_vtable = m_driver.read<DWORD64>(addr + 8 * 3);
 			if (client_networkable_vtable == 0) continue;
 
@@ -80,10 +102,16 @@ public:
 
 			// 如果是玩家或者电脑人
 			if (strcmp(names, "CPlayer") == 0 || strcmp(names, "CAI_BaseNPC") == 0)
-				m_players[m_player_num++].update(&m_driver, addr);
-
+			{
+				// 不是是自己
+				if (addr != m_local.m_base)
+					m_players[num++].update(&m_driver, addr);
+			}
 			delete[] names;
+			*/
 		}
+
+		return num;
 	}
 
 	/* 角度计算 */
@@ -181,39 +209,50 @@ public:
 		DWORD64 addr = m_driver.read<DWORD64>(m_driver.m_base + apex_offsets::LocalPlayer);
 		m_local.update(&m_driver, addr);
 
-		// 根据渲染视图找到矩阵
-		addr = m_driver.read<DWORD64>(m_driver.m_base + apex_offsets::ViewRender);
-		if (addr)
-		{
-			addr = m_driver.read<DWORD64>(addr + apex_offsets::ViewMatrix);
-			if (addr) m_matrix = m_driver.read<matrix_info>(addr);
-		}
-
 		// 读取全部客户端信息
 		m_driver.read_array(m_driver.m_base + apex_offsets::cl_entitylist, g_clients, sizeof(client_info) * NUM_ENT_ENTRIES);
-		get_visiable_player();
+
+		// 解析玩家
+		int num = get_visiable_player();
+		std::cout << "[+] 一共发现玩家[" << std::oct << num << "]名" << std::endl;
 	}
 
 	/* 玩家辉光 */
 	void glow_player(bool state)
 	{
-		for (int i = 0; i < m_player_num; i++)
+		// 自己基址为空
+		if (m_local.empty()) return;
+
+		// 玩家死亡
+		if (m_local.get_current_health() <= 0) return;
+
+		// 遍历玩家
+		for (int i = 0; i < MAX_PLAYERS; i++)
+		{
+			// 空判断
+			if (m_players[i].empty()) break;
+
+			// 玩家辉光
 			m_players[i].glow_player(state);
+		}
 	}
 
 	/* 玩家自瞄 */
 	void aim_player()
 	{
+		// 自己基址为空
+		if (m_local.empty()) return;
+
 		// 玩家死亡
 		if (m_local.get_current_health() <= 0) return;
 
 		// 获取头部骨骼
-		Vec3 local_head = m_local.get_bone_position(2)/* + m_local.get_cam_pos()*/;
+		Vec3 local_head = m_local.get_bone_position(2);
 
 		// 获取当前角度
 		Vec3 current_angle = m_local.get_angle();
 
-		// 获取后坐力角度、
+		// 获取后坐力角度
 		Vec3 recoil_angle = m_local.get_recoil_angle();
 
 		Vec3 vest;
@@ -221,13 +260,16 @@ public:
 		bool state = false;
 
 		// 遍历玩家
-		for (int i = 0; i < m_player_num; i++)
+		for (int i = 0; i < MAX_PLAYERS; i++)
 		{
-			// 是我们玩家自己
-			if (m_players[i].m_base == m_local.m_base) continue;
+			// 后面的全部为空
+			if (m_players[i].empty()) break;
 
 			// 玩家死亡
 			if (m_players[i].get_current_health() <= 0) continue;
+
+			// 不存活
+			if (m_players[i].is_life() == false) continue;
 
 			// 玩家是队友
 			if (m_players[i].get_team_id() == m_local.get_team_id()) continue;
@@ -269,20 +311,31 @@ public:
 		// 初始化
 		if (initialize() == false) return;
 
+		// 状态更新
+		info_update();
+
+		// 循环
 		while (true)
 		{
-			// 状态更新
-			info_update();
+			// 跳跃键更新信息和设置玩家辉光
+			// 因为APEX是64位的游戏,一直状态更新的话,自瞄速度跟不上啊
+			if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+			{
+				// 状态更新
+				info_update();
 
-			// 玩家辉光
-			glow_player(true);
+				// 玩家辉光
+				glow_player(true);
+			}
 
 			// 玩家自瞄
 			if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) aim_player();
 
+			// 退出作弊
+			if (GetAsyncKeyState(VK_F9) & 0x8000) break;
+
+			// 放过CPU
 			Sleep(5);
-			//getchar();
-			//system("cls");
 		}
 	}
 };
