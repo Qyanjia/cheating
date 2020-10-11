@@ -18,6 +18,8 @@
 
 3.驱动
 
+4.Apex Legends
+
 ## 未来计划 :pushpin:
 其它游戏相关教程
 
