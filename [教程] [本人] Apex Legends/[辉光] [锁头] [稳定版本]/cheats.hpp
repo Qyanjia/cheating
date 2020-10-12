@@ -11,6 +11,7 @@ class apex_cheats
 {
 private:
 	rm_driver m_driver;		// 读写
+	HWND m_hwnd;			// 游戏窗口
 
 	entity m_local;				// 本地玩家
 
@@ -26,6 +27,10 @@ public:
 		// 初始化驱动相关
 		bool state = m_driver.initialize(L"r5apex.exe");
 		if (state == false) return false;
+
+		// 查找游戏窗口
+		m_hwnd = FindWindowA("Respawn001", "Apex Legends");
+		if (m_hwnd == false) return false;
 
 		IMAGE_DOS_HEADER dos = m_driver.read<IMAGE_DOS_HEADER>(m_driver.m_base);
 		std::cout << "[+] DOS文件头偏移 : 0x" << std::hex << dos.e_lfanew << std::endl;
@@ -55,7 +60,7 @@ public:
 		int num = 0;
 
 		// 清空玩家
-		memset(m_players, 0, sizeof(entity) * MAX_PLAYERS);
+		for (int i = 0; i < MAX_PLAYERS; i++) m_players[i].update(nullptr, 0);
 
 		// 找出真正的玩家地址
 		for (int i = 0; i < NUM_ENT_ENTRIES; i++)
@@ -214,7 +219,7 @@ public:
 
 		// 解析玩家
 		int num = get_visiable_player();
-		std::cout << "[+] 一共发现玩家[" << std::oct << num << "]名" << std::endl;
+		std::cout << std::oct << "[+] 玩家[" << num << "]名" << std::endl;
 	}
 
 	/* 玩家辉光 */
@@ -231,6 +236,13 @@ public:
 		{
 			// 空判断
 			if (m_players[i].empty()) break;
+
+			// 玩家存活判断
+			if (m_players[i].get_current_health() <= 0) continue;
+			if (m_players[i].is_life() == false) continue;
+
+			// 玩家是队友
+			if (m_players[i].get_team_id() == m_local.get_team_id()) continue;
 
 			// 玩家辉光
 			m_players[i].glow_player(state);
@@ -317,25 +329,35 @@ public:
 		// 循环
 		while (true)
 		{
-			// 跳跃键更新信息和设置玩家辉光
-			// 因为APEX是64位的游戏,一直状态更新的话,自瞄速度跟不上啊
-			if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+			// 游戏窗口是顶层窗口
+			if (m_hwnd == GetForegroundWindow())
 			{
-				// 状态更新
-				info_update();
+				// 跳跃键更新信息和设置玩家辉光
+				// 因为APEX是64位的游戏,一直状态更新的话,自瞄速度跟不上啊
+				if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+				{
+					// 状态更新
+					info_update();
 
-				// 玩家辉光
-				glow_player(true);
+					// 玩家辉光
+					glow_player(true);
+				}
+
+				// 玩家自瞄
+				if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) aim_player();
+
+				// 退出作弊
+				if (GetAsyncKeyState(VK_F9) & 0x8000) break;
 			}
-
-			// 玩家自瞄
-			if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) aim_player();
-
-			// 退出作弊
-			if (GetAsyncKeyState(VK_F9) & 0x8000) break;
 
 			// 放过CPU
 			Sleep(5);
 		}
+
+		// 状态更新
+		info_update();
+
+		// 结束玩家辉光
+		glow_player(false);
 	}
 };

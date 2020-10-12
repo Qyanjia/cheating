@@ -41,12 +41,19 @@ namespace apex_offsets
 	static DWORD64 m_iObserverMode = 0x32bc;						// 观察模式
 	static DWORD64 m_helmetType = 0x4274;							// 头盔类型
 	static DWORD64 m_armorType = 0x4278;								// 护甲类型
+	static DWORD64 m_bleedoutState = 0x2610;						// 流血状态
+	static DWORD64 m_bleedoutStartTime = 0x2614;					// 流血时间
 
 	static DWORD64 m_highlightFunctionBits = 0x2A8;
 	static DWORD64 m_highlight_t1 = m_highlightFunctionBits - 0x46;
 	static DWORD64 m_highlight_t2 = m_highlightFunctionBits + 0x1C;
 	static DWORD64 m_highlight_enable = m_highlightFunctionBits + 0xA8;
 	static DWORD64 m_highlight_wall = m_highlight_enable + 0x10;
+
+	static DWORD64 m_highlightParams = 0x01b8;
+	static DWORD64 m_highlightServerFadeStartTimes = 0x0300;
+	static DWORD64 m_highlightServerContextID = 0x0348;
+	static DWORD64 m_highlightTeamBits = 0x0354;
 
 	static DWORD64 m_weaponOwner = 0x1600;						// 武器
 	static DWORD64 m_weaponNameIndex = 0x17b0;				// 武器类型

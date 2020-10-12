@@ -303,4 +303,10 @@ public:
 	{
 		KbWriteProcessMemory((ULONG)m_pid, (PVOID)addr, (PVOID)&buf, (ULONG)sizeof(T), FALSE);
 	}
+
+	/* Ð´ÈëÊý×é */
+	void write_array(DWORD64 addr, PVOID data, DWORD32 size)
+	{
+		KbWriteProcessMemory((ULONG)m_pid, (PVOID)addr, (PVOID)data, (ULONG)size, FALSE);
+	}
 };

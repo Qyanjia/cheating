@@ -294,4 +294,16 @@ public:
 	{
 		return m_driver_point->read<DWORD32>(m_base + apex_offsets::m_lifeState) == 0;
 	}
+
+	/* 流血趴下状态 */
+	bool is_bleed_out()
+	{
+		return m_driver_point->read<DWORD32>(m_base + apex_offsets::m_bleedoutState) > 0;
+	}
+
+	/* 流血时间 */
+	float get_bleed_out_time()
+	{
+		return m_driver_point->read<float>(m_base + apex_offsets::m_bleedoutStartTime);
+	}
 };
