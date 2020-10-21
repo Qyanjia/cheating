@@ -144,6 +144,17 @@ struct Vec3
 	}
 };
 
+// 骨骼
+typedef struct _Bone
+{
+	uint8_t pad1[0xCC];
+	float x;
+	uint8_t pad2[0xC];
+	float y;
+	uint8_t pad3[0xC];
+	float z;
+}Bone;
+
 class entity
 {
 public:
@@ -194,16 +205,34 @@ public:
 		return m_driver_point->read<Vec3>(m_base + apex_offsets::m_localOrigin);
 	}
 
+	/* 获取abs原点 */
+	Vec3 get_abs_origin()
+	{
+		return m_driver_point->read<Vec3>(m_base + apex_offsets::m_vecAbsOrigin);
+	}
+
+	/* 摄像机位置 */
+	Vec3 get_cam_pos()
+	{
+		return m_driver_point->read<Vec3>(m_base + apex_offsets::m_vecCamPos);
+	}
+
+	/* 获取交换角度 */
+	Vec3 get_sway_angle()
+	{
+		return m_driver_point->read<Vec3>(m_base + apex_offsets::m_vecSwayAngle);
+	}
+
 	/* 获取角度 */
 	Vec3 get_angle()
 	{
-		return m_driver_point->read<Vec3>(m_base + 0x24a0); //apex_offsets::m_localAngles;
+		return m_driver_point->read<Vec3>(m_base + apex_offsets::m_vecViewAngle); //apex_offsets::m_localAngles;
 	}
 
 	/* 设置角度 */
 	void set_angle(Vec3 v)
 	{
-		return m_driver_point->write<Vec3>(m_base + 0x24a0, v); //apex_offsets::m_localAngles;
+		return m_driver_point->write<Vec3>(m_base + apex_offsets::m_vecViewAngle, v); //apex_offsets::m_localAngles;
 	}
 
 	/* 获取当前血量 */
@@ -222,12 +251,6 @@ public:
 	DWORD32 get_team_id()
 	{
 		return m_driver_point->read<DWORD32>(m_base + apex_offsets::m_iTeamNum);
-	}
-
-	/* 获取存活状态 */
-	SHORT get_life_state()
-	{
-		return m_driver_point->read<SHORT>(m_base + apex_offsets::m_lifeState);
 	}
 
 	/* 获取当前护盾值 */
@@ -249,7 +272,15 @@ public:
 		m_driver_point->read_array(m_base + apex_offsets::m_bConstrainBetweenEndpoints, bones, sizeof(mat3x4) * 128);
 
 		const auto& t = bones[id];
-		return get_origin() + Vec3{ t.u.d2[3],t.u.d2[7], t.u.d2[11] };
+		return get_abs_origin() + Vec3{ t.u.d2[3],t.u.d2[7], t.u.d2[11] };
+	}
+
+	/* 获取指定骨骼 */
+	Vec3 get_bone_position_plus(int id)
+	{
+		Vec3 origin = get_abs_origin();
+		Bone b = m_driver_point->read<Bone>(m_base + apex_offsets::m_bConstrainBetweenEndpoints + id * 0x30);
+		return Vec3{ origin.x + b.x,origin.y + b.y,origin.z + b.z };
 	}
 
 	/* 辉光 */

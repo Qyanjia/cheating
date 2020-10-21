@@ -1,6 +1,7 @@
 #pragma once
 
 #include "entity.hpp"
+#include "xorstr.hpp"
 
 constexpr const int NUM_ENT_ENTRIES = 0x10000;
 constexpr const int MAX_PLAYERS = 100;
@@ -25,7 +26,7 @@ public:
 	bool initialize()
 	{
 		// 初始化驱动相关
-		bool state = m_driver.initialize(L"r5apex.exe");
+		bool state = m_driver.initialize(L"r5apex.exe", L"\\\\.\\{BE416943-E578-4EBA-81F7-597AE57EB483}");
 		if (state == false) return false;
 
 		// 查找游戏窗口
@@ -40,6 +41,7 @@ public:
 		if (apex_offsets::TimeDateStamp != nt64.FileHeader.TimeDateStamp)
 		{
 			std::cout << "[-] 时间戳不相同,请更新偏移" << std::endl;
+			system("pause");
 			return false;
 		}
 
@@ -47,6 +49,7 @@ public:
 		if (apex_offsets::CheckSum != nt64.OptionalHeader.CheckSum)
 		{
 			std::cout << "[-] 校验和不相同,请更新偏移" << std::endl;
+			system("pause");
 			return false;
 		}
 
@@ -89,31 +92,6 @@ public:
 					m_players[num++] = e;
 				}
 			}
-
-			/*
-			// 类型判断
-			DWORD64 client_networkable_vtable = m_driver.read<DWORD64>(addr + 8 * 3);
-			if (client_networkable_vtable == 0) continue;
-
-			DWORD64 get_client_class = m_driver.read<DWORD64>(client_networkable_vtable + 8 * 3);
-			if (get_client_class == 0) continue;
-
-			DWORD32 disp = m_driver.read<DWORD32>(get_client_class + 3);
-			if (disp == 0) continue;
-
-			DWORD64 client_class_ptr = get_client_class + disp + 7;
-			client_class_info info = m_driver.read<client_class_info>(client_class_ptr);
-			char* names = m_driver.read_char_array(info.pNetworkName, 128);
-
-			// 如果是玩家或者电脑人
-			if (strcmp(names, "CPlayer") == 0 || strcmp(names, "CAI_BaseNPC") == 0)
-			{
-				// 不是是自己
-				if (addr != m_local.m_base)
-					m_players[num++].update(&m_driver, addr);
-			}
-			delete[] names;
-			*/
 		}
 
 		return num;
@@ -219,7 +197,7 @@ public:
 
 		// 解析玩家
 		int num = get_visiable_player();
-		std::cout << std::oct << "[+] 玩家[" << num << "]名" << std::endl;
+		std::cout << std::oct << "[+] 剩余玩家[" << num << "]名" << std::endl;
 	}
 
 	/* 玩家辉光 */
@@ -230,6 +208,7 @@ public:
 
 		// 玩家死亡
 		if (m_local.get_current_health() <= 0) return;
+		if (m_local.is_life() == false) return;
 
 		// 遍历玩家
 		for (int i = 0; i < MAX_PLAYERS; i++)
@@ -250,16 +229,17 @@ public:
 	}
 
 	/* 玩家自瞄 */
-	void aim_player()
+	void aim_player(int bone = 2)
 	{
 		// 自己基址为空
 		if (m_local.empty()) return;
 
 		// 玩家死亡
 		if (m_local.get_current_health() <= 0) return;
+		if (m_local.is_life() == false) return;
 
 		// 获取头部骨骼
-		Vec3 local_head = m_local.get_bone_position(2);
+		Vec3 local_head = m_local.get_bone_position_plus(bone);
 
 		// 获取当前角度
 		Vec3 current_angle = m_local.get_angle();
@@ -279,15 +259,13 @@ public:
 
 			// 玩家死亡
 			if (m_players[i].get_current_health() <= 0) continue;
-
-			// 不存活
 			if (m_players[i].is_life() == false) continue;
 
 			// 玩家是队友
 			if (m_players[i].get_team_id() == m_local.get_team_id()) continue;
 
 			// 获取玩家骨骼
-			Vec3 v = m_players[i].get_bone_position(2);
+			Vec3 v = m_players[i].get_bone_position_plus(bone);
 
 			// 距离超过3000就不要自瞄了
 			float dis = local_head.distance(v);
@@ -326,7 +304,7 @@ public:
 		// 状态更新
 		info_update();
 
-		// 循环
+		// 无限循环
 		while (true)
 		{
 			// 游戏窗口是顶层窗口
@@ -353,11 +331,5 @@ public:
 			// 放过CPU
 			Sleep(5);
 		}
-
-		// 状态更新
-		info_update();
-
-		// 结束玩家辉光
-		glow_player(false);
 	}
 };

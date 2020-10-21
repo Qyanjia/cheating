@@ -7,14 +7,14 @@ APEX偏移
 
 namespace apex_offsets
 {
-	static DWORD64 TimeDateStamp = 0x5f6d432f;					// 时间戳
-	static DWORD64 CheckSum = 0x1fc1a53;								// 校验和
+	static DWORD64 TimeDateStamp = 0x5f87ac30;					// 时间戳
+	static DWORD64 CheckSum = 0x1fca1d9;								// 校验和
 
 	static DWORD64 ClientState = 0x1261f80;								// 客户端状态
 	static DWORD64 SignonState = 0x1262018;							// 登陆状态
 	static DWORD64 LevelName = 0x1262130;							// 游戏版本
 
-	static DWORD64 ViewRender = 0x40d5d98;							// 渲染视图
+	static DWORD64 ViewRender = 0x40d5e18;							// 渲染视图
 	static DWORD64 ViewMatrix = 0x1b3bd0;								// 矩阵视图
 	static DWORD64 GlobalVars = 0x1261c80;							// 全局变量
 
@@ -31,6 +31,10 @@ namespace apex_offsets
 	static DWORD64 m_localOrigin = 0x0158;								// 本地原点
 	static DWORD64 m_localAngles = 0x0164;							// 本地角度
 	static DWORD64 m_vecPunchWeapon_Angle = 0x23c8;		// 后坐力
+
+	static DWORD64 m_vecCamPos = 0x1E6C;							// 摄像机
+	static DWORD64 m_vecSwayAngle = 0x24a0 - 0x10;				// 交换角度
+	static DWORD64 m_vecViewAngle = 0x24a0;						// 视图角度
 
 	static DWORD64 m_shieldHealth = 0x0170;							// 护盾值
 	static DWORD64 m_shieldHealthMax = 0x0174;					// 最大护盾值
