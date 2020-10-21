@@ -208,7 +208,6 @@ public:
 
 		// 玩家死亡
 		if (m_local.get_current_health() <= 0) return;
-		if (m_local.is_life() == false) return;
 
 		// 遍历玩家
 		for (int i = 0; i < MAX_PLAYERS; i++)
@@ -218,7 +217,6 @@ public:
 
 			// 玩家存活判断
 			if (m_players[i].get_current_health() <= 0) continue;
-			if (m_players[i].is_life() == false) continue;
 
 			// 玩家是队友
 			if (m_players[i].get_team_id() == m_local.get_team_id()) continue;
@@ -236,10 +234,9 @@ public:
 
 		// 玩家死亡
 		if (m_local.get_current_health() <= 0) return;
-		if (m_local.is_life() == false) return;
 
 		// 获取头部骨骼
-		Vec3 local_head = m_local.get_bone_position_plus(bone);
+		Vec3 local_head = m_local.get_bone_position1(bone);
 
 		// 获取当前角度
 		Vec3 current_angle = m_local.get_angle();
@@ -259,13 +256,12 @@ public:
 
 			// 玩家死亡
 			if (m_players[i].get_current_health() <= 0) continue;
-			if (m_players[i].is_life() == false) continue;
 
 			// 玩家是队友
 			if (m_players[i].get_team_id() == m_local.get_team_id()) continue;
 
 			// 获取玩家骨骼
-			Vec3 v = m_players[i].get_bone_position_plus(bone);
+			Vec3 v = m_players[i].get_bone_position1(bone);
 
 			// 距离超过3000就不要自瞄了
 			float dis = local_head.distance(v);
@@ -285,6 +281,7 @@ public:
 		{
 			// 计算自瞄角度
 			Vec3 angle = get_aimbot_angle(local_head, vest) - recoil_angle;
+			angle.x += 0.5f;
 
 			// 归一化角度
 			angle_normalize(angle);

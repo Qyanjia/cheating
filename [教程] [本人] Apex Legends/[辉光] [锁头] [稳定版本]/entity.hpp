@@ -147,7 +147,7 @@ struct Vec3
 // 骨骼
 typedef struct _Bone
 {
-	uint8_t pad1[0xCC];
+	uint8_t pad1[0xC];
 	float x;
 	uint8_t pad2[0xC];
 	float y;
@@ -276,11 +276,15 @@ public:
 	}
 
 	/* 获取指定骨骼 */
-	Vec3 get_bone_position_plus(int id)
+	Vec3 get_bone_position1(int id)
 	{
 		Vec3 origin = get_abs_origin();
 		Bone b = m_driver_point->read<Bone>(m_base + apex_offsets::m_bConstrainBetweenEndpoints + id * 0x30);
-		return Vec3{ origin.x + b.x,origin.y + b.y,origin.z + b.z };
+		Vec3 res;
+		res.x = origin.x + b.x;
+		res.y = origin.y + b.y;
+		res.z = origin.z + b.z;
+		return res;
 	}
 
 	/* 辉光 */
