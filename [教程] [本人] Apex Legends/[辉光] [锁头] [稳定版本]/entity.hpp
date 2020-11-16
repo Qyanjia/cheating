@@ -28,8 +28,8 @@ struct client_info
 {
 	uint64_t pEntity;				// 实例指针
 	int64_t SerialNumber;		// 唯一码
-	uint64_t pPrev;				// 上一个
-	uint64_t pNext;				// 下一个
+	uint64_t pPrev;					// 上一个
+	uint64_t pNext;					// 下一个
 };
 
 // 客户端类信息
@@ -93,6 +93,22 @@ struct Vec3
 		return Vec3{ x * scale, y * scale, z * scale };
 	}
 
+	inline Vec3 operator+=(Vec3 v)
+	{
+		this->x += v.x;
+		this->y += v.y;
+		this->z += v.z;
+		return *this;
+	}
+
+	inline Vec3 operator-=(Vec3 v)
+	{
+		this->x -= v.x;
+		this->y -= v.y;
+		this->z -= v.z;
+		return *this;
+	}
+
 	inline Vec3 to_angles() const
 	{
 		float yaw, pitch;
@@ -147,13 +163,180 @@ struct Vec3
 // 骨骼
 typedef struct _Bone
 {
-	uint8_t pad1[0xC];
+	uint8_t pad1[0xCC];
 	float x;
 	uint8_t pad2[0xC];
 	float y;
 	uint8_t pad3[0xC];
 	float z;
 }Bone;
+
+// 武器索引
+enum class Weapon_Index : uint32_t
+{
+	R301 = 0,
+	SENTINEL = 1,
+	MELEE_SURVIVAL = 17,
+	ALTERNATOR = 59,
+	RE45,
+	DEVOTION,
+	LONGBOW,
+	EVA8_AUTO,
+	FLATLINE,
+	G7_SCOUT,
+	HEMLOK,
+	KRABER,
+	MASTIFF,
+	MOZAMBIQUE,
+	PROWLER,
+	PEACEKEEPER,
+	R99,
+	P2020,
+	SPITFIRE,
+	TRIPLE_TAKE,
+	WINGMAN,
+	HAVOC,
+	LSTAR,
+	CHARGE_RIFLE,
+	VOLT,
+};
+
+// 类别
+enum class ItemID : uint32_t
+{
+	KRABER_HEIRLOOM = 1,
+	MASTIFF = 2,
+	MASTIFF_GOLD = 3,
+	LSTAR = 7,
+	LSTAR_GOLD = 8,
+	HAVOC = 12,
+	HAVOC_GOLD = 13,
+	DEVOTION = 17,
+	DEVOTION_GOLD = 18,
+	TRIPLE_TAKE = 22,
+	TRIPLE_TAKE_GOLD = 23,
+	FLATLINE = 27,
+	FLATLINE_GOLD = 28,
+	HEMLOK = 32,
+	HEMLOK_GOLD = 33,
+	G7_SCOUT = 37,
+	G7_SCOUT_GOLD = 38,
+	ALTERNATOR = 42,
+	ALTERNATOR_GOLD = 43,
+	R99 = 47,
+	R99_GOLD = 48,
+	PROWLER_HEIRLOOM = 52,
+	VOLT = 57,
+	VOLT_GOLD = 58,
+	LONGBOW = 62,
+	LONGBOW_GOLD = 63,
+	CHARGE_RIFLE = 67,
+	CHARGE_RIFLE_GOLD = 68,
+	SPITFIRE = 72,
+	SPITFIRE_GOLD = 73,
+	R301 = 77,
+	R301_GOLD = 78,
+	EVA8_AUTO = 82,
+	EVA8_AUTO_GOLD = 83,
+	PEACEKEEPER_HEIRLOOM = 87,
+	MOZAMBIQUE = 88,
+	MOZAMBIQUE_GOLD = 89,
+	WINGMAN = 93,
+	WINGMAN_GOLD = 94,
+	P2020 = 98,
+	P2020_GOLD = 99,
+	RE45 = 103,
+	RE45_GOLD = 104,
+	SENTINEL = 108,
+	SENTINEL_GOLD = 109,
+
+	LIGHT_ROUNDS = 113,
+	ENERGY_AMMO,
+	SHOTGUN_SHELLS,
+	HEAVY_ROUNDS,
+	SNIPER_AMMO,
+
+	ULTIMATE_ACCELERANT,
+	PHOENIX_KIT,
+	MED_KIT,
+	SYRINGE,
+	SHIELD_BATTERY,
+	SHIELD_CELL,
+
+	HELMET_LV1,
+	HELMET_LV2,
+	HELMET_LV3,
+	HELMET_LV4,
+	BODY_ARMOR_LV1,
+	BODY_ARMOR_LV2,
+	BODY_ARMOR_LV3,
+	BODY_ARMOR_LV4,
+	EVO_SHIELD_LV0,
+	EVO_SHIELD_LV1,
+	EVO_SHIELD_LV2,
+	EVO_SHIELD_LV3,
+	EVO_SHIELD_LV4,
+	KNOCKDOWN_SHIELD_LV1,
+	KNOCKDOWN_SHIELD_LV2,
+	KNOCKDOWN_SHIELD_LV3,
+	KNOCKDOWN_SHIELD_LV4,
+	BACKPACK_LV1,
+	BACKPACK_LV2,
+	BACKPACK_LV3,
+	BACKPACK_LV4,
+
+	THERMITE_GRENADE,
+	FRAG_GRENADE,
+	ARC_STAR,
+
+	HCOG_CLASSIC,
+	HCOG_BRUISER,
+	HOLO,
+	VARIABLE_HOLO,
+	DIGITAL_THREAT,
+	HCOG_RANGER,
+	VARIABLE_AOG,
+	SNIPER,
+	VARIABLE_SNIPER,
+	DIGITAL_SNIPER_THREAT,
+
+	BARREL_STABILIZER_LV1,
+	BARREL_STABILIZER_LV2,
+	BARREL_STABILIZER_LV3,
+	BARREL_STABILIZER_LV4,
+	LIGHT_MAGAZINE_LV1,
+	LIGHT_MAGAZINE_LV2,
+	LIGHT_MAGAZINE_LV3,
+	HEAVY_MAGAZINE_LV1,
+	HEAVY_MAGAZINE_LV2,
+	HEAVY_MAGAZINE_LV3,
+	ENERGY_MAGAZINE_LV1,
+	ENERGY_MAGAZINE_LV2,
+	ENERGY_MAGAZINE_LV3,
+	SNIPER_MAGAZINE_LV1,
+	SNIPER_MAGAZINE_LV2,
+	SNIPER_MAGAZINE_LV3,
+	SHOTGUN_BOLT_LV1,
+	SHOTGUN_BOLT_LV2,
+	SHOTGUN_BOLT_LV3,
+	STANDARD_STOCK_LV1,
+	STANDARD_STOCK_LV2,
+	STANDARD_STOCK_LV3,
+	SNIPER_STOCK_LV1,
+	SNIPER_STOCK_LV2,
+	SNIPER_STOCK_LV3,
+
+	TURBOCHARGER,
+	SKULLPIERCER_RIFLING,
+	HAMMERPOINT_ROUNDS,
+	DOUBLE_TAP_TRIGGER,
+	HOPUP_187,
+	QUICKDRAW_HOLSTER,
+	VAULT_KEY,
+	MOBILE_RESPAWN_BEACON,
+	ITEM_191,
+	TREASURE_PACK,
+};
 
 class entity
 {
@@ -176,7 +359,8 @@ public:
 	/* 有效性判断 */
 	bool empty()
 	{
-		if (m_driver_point == nullptr || m_base == 0) return true;
+		if (m_driver_point == nullptr) return true;
+		if (m_base == 0) return true;
 		return false;
 	}
 
@@ -273,6 +457,7 @@ public:
 
 		const auto& t = bones[id];
 		return get_abs_origin() + Vec3{ t.u.d2[3],t.u.d2[7], t.u.d2[11] };
+		return get_abs_origin() + Vec3{ t.u.d1[0][3],t.u.d1[1][3] ,t.u.d1[2][3] };
 	}
 
 	/* 获取指定骨骼 */
@@ -287,7 +472,7 @@ public:
 		return res;
 	}
 
-	/* 辉光 */
+	/* 辉光人物 */
 	void glow_player(bool state)
 	{
 		if (state)
@@ -330,15 +515,50 @@ public:
 		return m_driver_point->read<DWORD32>(m_base + apex_offsets::m_lifeState) == 0;
 	}
 
+	/* 是否站着 */
+	bool is_ground()
+	{
+		return (get_flags() & 0x1) != 0;
+	}
+
+	/* 是否蹲着 */
+	bool is_duck()
+	{
+		return (get_flags() & 0x2) != 0;
+	}
+
 	/* 流血趴下状态 */
 	bool is_bleed_out()
 	{
-		return m_driver_point->read<DWORD32>(m_base + apex_offsets::m_bleedoutState) > 0;
+		return m_driver_point->read<DWORD32>(m_base + apex_offsets::m_bleedoutState) != 0;
 	}
 
 	/* 流血时间 */
 	float get_bleed_out_time()
 	{
 		return m_driver_point->read<float>(m_base + apex_offsets::m_bleedoutStartTime);
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+	/* 辉光物体 */
+	void glow_item(bool state)
+	{
+		if (state)
+			m_driver_point->write<DWORD>(m_base + apex_offsets::m_highlightFunctionBits, 1363184265);
+		else
+			m_driver_point->write<DWORD>(m_base + apex_offsets::m_highlightFunctionBits, 1411417991);
+	}
+
+	/* 获取类别索引 */
+	ItemID get_item_index()
+	{
+		return m_driver_point->read<ItemID>(m_base + apex_offsets::m_customScriptInt);
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+	/* 获取武器名称索引 */
+	Weapon_Index get_weapon_name_index()
+	{
+		return m_driver_point->read<Weapon_Index>(m_base + apex_offsets::m_weaponNameIndex);
 	}
 };

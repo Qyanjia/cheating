@@ -1,7 +1,6 @@
 #pragma once
 
 #include "entity.hpp"
-#include "xorstr.hpp"
 
 constexpr const int NUM_ENT_ENTRIES = 0x10000;
 constexpr const int MAX_PLAYERS = 100;
@@ -42,6 +41,7 @@ public:
 		{
 			std::cout << "[-] 时间戳不相同,请更新偏移" << std::endl;
 			system("pause");
+			exit(0);
 			return false;
 		}
 
@@ -50,10 +50,17 @@ public:
 		{
 			std::cout << "[-] 校验和不相同,请更新偏移" << std::endl;
 			system("pause");
+			exit(0);
 			return false;
 		}
 
 		return true;
+	}
+
+	/* 游戏进程退出判断 */
+	bool is_game_exit()
+	{
+		return FindWindowA("Respawn001", "Apex Legends") == NULL;
 	}
 
 	/* 获取有效玩家 */
@@ -97,6 +104,28 @@ public:
 		return num;
 	}
 
+	/* 测试专用 */
+	void this_is_test_function()
+	{
+		// 找地址
+		// CPlayer
+		// CAI_BaseNPC
+		// CPropSurvival
+		// CWeaponX
+		// CWorld
+		for (int i = 0; i < NUM_ENT_ENTRIES; i++)
+		{
+			// 先拿到实例地址
+			DWORD64 addr = g_clients[i].pEntity;
+			if (addr == 0) continue;
+
+			// 如果是R301武器就辉光
+			entity e(&m_driver, addr);
+			if (e.get_item_index() == ItemID::R301)
+				e.glow_item(true);
+		}
+	}
+
 	/* 角度计算 */
 	void calc_angle(Vec3& vecOrigin, Vec3& vecOther, Vec3& vecAngles)
 	{
@@ -135,7 +164,7 @@ public:
 		float mag_d = sqrt((aim[0] * aim[0]) + (aim[1] * aim[1]) + (aim[2] * aim[2]));
 
 		float u_dot_v = aim[0] * ang[0] + aim[1] * ang[1] + aim[2] * ang[2];
-		fov = acos(u_dot_v / (mag_s*mag_d)) * (180.f / 3.14159265358979323846);
+		fov = acos(u_dot_v / (mag_s*mag_d)) * (180.f / 3.14159265358979323846f);
 		fov *= 1.4;
 
 		if (isnan(fov)) return 0.0f;
@@ -149,9 +178,9 @@ public:
 		Vec3 vecDelta = Vec3{ (vecOrigin[0] - vecOther[0]), (vecOrigin[1] - vecOther[1]), (vecOrigin[2] - vecOther[2]) };
 		float hyp = sqrtf(vecDelta[0] * vecDelta[0] + vecDelta[1] * vecDelta[1]);
 
-		float  M_PI = 3.14159265358979323846f;
-		vecAngles[0] = (float)atan(vecDelta[2] / hyp)		*(float)(180.f / M_PI);
-		vecAngles[1] = (float)atan(vecDelta[1] / vecDelta[0])	*(float)(180.f / M_PI);
+		float  M_PI = 3.1415f;
+		vecAngles[0] = (float)atan(vecDelta[2] / hyp) * (float)(180.f / M_PI);
+		vecAngles[1] = (float)atan(vecDelta[1] / vecDelta[0]) * (float)(180.f / M_PI);
 		vecAngles[2] = (float)0.f;
 
 		if (vecDelta[0] >= 0.f) vecAngles[1] += 180.0f;
@@ -197,17 +226,16 @@ public:
 
 		// 解析玩家
 		int num = get_visiable_player();
-		std::cout << std::oct << "[+] 剩余玩家[" << num << "]名" << std::endl;
+		std::cout << std::oct << "[+] 剩余玩家 [ " << num << " ] 名" << std::endl;
+
+		// this_is_test_function();
 	}
 
 	/* 玩家辉光 */
-	void glow_player(bool state)
+	void glow_player(bool state = true)
 	{
 		// 自己基址为空
 		if (m_local.empty()) return;
-
-		// 玩家死亡
-		if (m_local.get_current_health() <= 0) return;
 
 		// 遍历玩家
 		for (int i = 0; i < MAX_PLAYERS; i++)
@@ -217,6 +245,7 @@ public:
 
 			// 玩家存活判断
 			if (m_players[i].get_current_health() <= 0) continue;
+			if (m_players[i].is_life() == false) continue;
 
 			// 玩家是队友
 			if (m_players[i].get_team_id() == m_local.get_team_id()) continue;
@@ -227,7 +256,7 @@ public:
 	}
 
 	/* 玩家自瞄 */
-	void aim_player(int bone = 2)
+	void aim_player(int bone = 8)
 	{
 		// 自己基址为空
 		if (m_local.empty()) return;
@@ -256,6 +285,10 @@ public:
 
 			// 玩家死亡
 			if (m_players[i].get_current_health() <= 0) continue;
+			if (m_players[i].is_life() == false) continue;
+
+			// 玩家倒下
+			if (m_players[i].is_bleed_out()) continue;
 
 			// 玩家是队友
 			if (m_players[i].get_team_id() == m_local.get_team_id()) continue;
@@ -298,35 +331,39 @@ public:
 		// 初始化
 		if (initialize() == false) return;
 
+		// 准备了,给个提示音
+		Beep(500, 500);
+
 		// 状态更新
 		info_update();
 
 		// 无限循环
-		while (true)
+		while (is_game_exit() == false)
 		{
 			// 游戏窗口是顶层窗口
 			if (m_hwnd == GetForegroundWindow())
 			{
 				// 跳跃键更新信息和设置玩家辉光
 				// 因为APEX是64位的游戏,一直状态更新的话,自瞄速度跟不上啊
+				// 所以要不定期按一下跳跃键!!!!!更新玩家列表
 				if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 				{
 					// 状态更新
 					info_update();
 
 					// 玩家辉光
-					glow_player(true);
+					glow_player();
 				}
 
 				// 玩家自瞄
-				if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) aim_player();
+				if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) aim_player(8);//6 8
 
-				// 退出作弊
+			   // 退出作弊
 				if (GetAsyncKeyState(VK_F9) & 0x8000) break;
 			}
 
 			// 放过CPU
-			Sleep(5);
+			Sleep(3);
 		}
 	}
 };
