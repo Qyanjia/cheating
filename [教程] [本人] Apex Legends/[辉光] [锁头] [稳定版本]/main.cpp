@@ -21,6 +21,13 @@ int main(int argc, char* argv[])
 	// 设置随机标题
 	set_random_title();
 
+	// 不是什么电脑都能运行的
+	std::cout << "[+] please input password : ";
+	std::string pass;
+	getline(std::cin, pass);
+	if (pass.size() != 3) return 0;
+	if (pass[0] != 'F' || pass[1] != 'Y' || pass[2] != 'H') return 0;
+
 	while (true)
 	{
 		// 暂停一下,进入游戏后按任意键开始作弊

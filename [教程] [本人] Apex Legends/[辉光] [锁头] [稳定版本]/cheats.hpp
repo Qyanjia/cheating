@@ -30,7 +30,7 @@ public:
 
 		// 查找游戏窗口
 		m_hwnd = FindWindowA("Respawn001", "Apex Legends");
-		if (m_hwnd == false) return false;
+		if (m_hwnd == 0) return false;
 
 		IMAGE_DOS_HEADER dos = m_driver.read<IMAGE_DOS_HEADER>(m_driver.m_base);
 		std::cout << "[+] DOS文件头偏移 : 0x" << std::hex << dos.e_lfanew << std::endl;
@@ -97,7 +97,41 @@ public:
 				{
 					// 加入玩家列表
 					m_players[num++] = e;
+					continue;
 				}
+			}
+
+			// 物体辉光
+			switch (e.get_item_index())
+			{
+				// 主武器
+			case ItemID::R301:
+			case ItemID::R301_GOLD:
+			case ItemID::R99:
+			case ItemID::R99_GOLD:
+
+				// 头盔
+			case ItemID::HELMET_LV3:
+			case ItemID::HELMET_LV4:
+
+				// 护甲
+			case ItemID::BODY_ARMOR_LV3:
+			case ItemID::BODY_ARMOR_LV4:
+
+				// 盾牌
+			case ItemID::EVO_SHIELD_LV3:
+			case ItemID::EVO_SHIELD_LV4:
+
+				// 击倒护盾
+			case ItemID::KNOCKDOWN_SHIELD_LV3:
+			case ItemID::KNOCKDOWN_SHIELD_LV4:
+
+				// 背包
+			case ItemID::BACKPACK_LV3:
+			case ItemID::BACKPACK_LV4:
+
+				e.glow_item(true);
+				break;
 			}
 		}
 
@@ -121,8 +155,34 @@ public:
 
 			// 如果是R301武器就辉光
 			entity e(&m_driver, addr);
-			if (e.get_item_index() == ItemID::R301)
-				e.glow_item(true);
+			switch (e.get_item_index())
+			{
+				// 主武器
+			case ItemID::R301:
+			case ItemID::R301_GOLD:
+			case ItemID::R99:
+			case ItemID::R99_GOLD: e.glow_item(true); break;
+
+				// 头盔
+			case ItemID::HELMET_LV3:
+			case ItemID::HELMET_LV4: e.glow_item(true); break;
+
+				// 护甲
+			case ItemID::BODY_ARMOR_LV3:
+			case ItemID::BODY_ARMOR_LV4: e.glow_item(true); break;
+
+				// 盾牌
+			case ItemID::EVO_SHIELD_LV3:
+			case ItemID::EVO_SHIELD_LV4: e.glow_item(true); break;
+
+				// 击倒护盾
+			case ItemID::KNOCKDOWN_SHIELD_LV3:
+			case ItemID::KNOCKDOWN_SHIELD_LV4: e.glow_item(true); break;
+
+				// 背包
+			case ItemID::BACKPACK_LV3:
+			case ItemID::BACKPACK_LV4: e.glow_item(true); break;
+			}
 		}
 	}
 
@@ -228,6 +288,7 @@ public:
 		int num = get_visiable_player();
 		std::cout << std::oct << "[+] 剩余玩家 [ " << num << " ] 名" << std::endl;
 
+		// 测试
 		// this_is_test_function();
 	}
 

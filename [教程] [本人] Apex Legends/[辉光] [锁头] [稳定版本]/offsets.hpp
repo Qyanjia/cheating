@@ -7,19 +7,22 @@ APEX偏移
 
 namespace apex_offsets
 {
-	static DWORD64 TimeDateStamp = 0x5fa9da95;					// 时间戳
-	static DWORD64 CheckSum = 0x200df29;							// 校验和
+	static DWORD64 TimeDateStamp = 0x5faee648;					// 时间戳
+	static DWORD64 CheckSum = 0x201a31a;							// 校验和
 
-	static DWORD64 ClientState = 0x127c040;							// 客户端状态
-	static DWORD64 SignonState = 0x127c0d8;							// 登陆状态
-	static DWORD64 LevelName = 0x127c1f0;							// 游戏版本
+	static DWORD64 ClientState = 0x127c0e0;							// 客户端状态
+	static DWORD64 SignonState = 0x127c178;							// 登陆状态
+	static DWORD64 LevelName = 0x127c290;							// 游戏版本
 
-	static DWORD64 ViewRender = 0x4077ad8;							// 渲染视图
+	static DWORD64 ViewRender = 0x4077bd8;						// 渲染视图
 	static DWORD64 ViewMatrix = 0x1b3bd0;							// 矩阵视图
-	static DWORD64 GlobalVars = 0x127bd40;							// 全局变量
+	static DWORD64 GlobalVars = 0x127bde0;							// 全局变量
 
-	static DWORD64 LocalPlayer = 0x1c76f28;							// 本地玩家
-	static DWORD64 cl_entitylist = 0x18c7a68;							// 玩家列表
+	static DWORD64 LocalPlayer = 0x1c76fb8;							// 本地玩家
+	static DWORD64 cl_entitylist = 0x18c7af8;							// 玩家列表
+
+	// 游戏更新了需要修改上面的偏移,下面的很少情况需要改的
+	//////////////////////////////////////////////////////////////////////////
 
 	static DWORD64 m_ModelName = 0x0030;							// 模型名称
 	static DWORD64 m_fFlags = 0x0098;									// 标识

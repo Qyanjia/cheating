@@ -163,7 +163,7 @@ struct Vec3
 // 骨骼
 typedef struct _Bone
 {
-	uint8_t pad1[0xCC];
+	uint8_t pad1[0xC];
 	float x;
 	uint8_t pad2[0xC];
 	float y;
@@ -204,6 +204,7 @@ enum class Weapon_Index : uint32_t
 // 类别
 enum class ItemID : uint32_t
 {
+	// 武器
 	KRABER_HEIRLOOM = 1,
 	MASTIFF = 2,
 	MASTIFF_GOLD = 3,
@@ -250,12 +251,14 @@ enum class ItemID : uint32_t
 	SENTINEL = 108,
 	SENTINEL_GOLD = 109,
 
+	// 弹药
 	LIGHT_ROUNDS = 113,
 	ENERGY_AMMO,
 	SHOTGUN_SHELLS,
 	HEAVY_ROUNDS,
 	SNIPER_AMMO,
 
+	// 治疗
 	ULTIMATE_ACCELERANT,
 	PHOENIX_KIT,
 	MED_KIT,
@@ -263,6 +266,7 @@ enum class ItemID : uint32_t
 	SHIELD_BATTERY,
 	SHIELD_CELL,
 
+	// 护甲
 	HELMET_LV1,
 	HELMET_LV2,
 	HELMET_LV3,
@@ -285,10 +289,12 @@ enum class ItemID : uint32_t
 	BACKPACK_LV3,
 	BACKPACK_LV4,
 
+	// 手榴弹
 	THERMITE_GRENADE,
 	FRAG_GRENADE,
 	ARC_STAR,
 
+	// 倍镜
 	HCOG_CLASSIC,
 	HCOG_BRUISER,
 	HOLO,
@@ -300,6 +306,7 @@ enum class ItemID : uint32_t
 	VARIABLE_SNIPER,
 	DIGITAL_SNIPER_THREAT,
 
+	// 配件
 	BARREL_STABILIZER_LV1,
 	BARREL_STABILIZER_LV2,
 	BARREL_STABILIZER_LV3,
@@ -326,6 +333,7 @@ enum class ItemID : uint32_t
 	SNIPER_STOCK_LV2,
 	SNIPER_STOCK_LV3,
 
+	// 配件
 	TURBOCHARGER,
 	SKULLPIERCER_RIFLING,
 	HAMMERPOINT_ROUNDS,
@@ -457,7 +465,6 @@ public:
 
 		const auto& t = bones[id];
 		return get_abs_origin() + Vec3{ t.u.d2[3],t.u.d2[7], t.u.d2[11] };
-		return get_abs_origin() + Vec3{ t.u.d1[0][3],t.u.d1[1][3] ,t.u.d1[2][3] };
 	}
 
 	/* 获取指定骨骼 */
