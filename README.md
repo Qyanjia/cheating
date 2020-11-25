@@ -29,6 +29,8 @@
 [Osu-Bypass](https://github.com/JakeDahl/Osu-Bypass)
 [AntiOS](https://github.com/vektort13/AntiOS)
 [HWIDbypass](https://github.com/yunseok/HWIDbypass)
+[NULL-CPP-SPOOFER](https://github.com/Xiloe/NULL-CPP-SPOOFER)
+[hwid_spoofer](https://github.com/haram/hwid_spoofer)
 
 ## 漏洞驱动利用/Vulnerability Driven Exploitation
 [kdmapper](https://github.com/z175/kdmapper)
@@ -45,6 +47,7 @@
 [DisableWin10PatchguardPoc](https://github.com/killvxk/DisableWin10PatchguardPoc)
 [PPLKiller](https://github.com/Mattiwatti/PPLKiller)
 [ByePg](https://github.com/can1357/ByePg)
+[SpeedFan-Exploit](https://github.com/SamLarenN/SpeedFan-Exploit)
 
 ## 内核读写驱动/Kernel Read And Write Driver
 [Kernel_Driver_Hack](https://github.com/TheCruZ/Kernel_Driver_Hack)
@@ -62,6 +65,7 @@
 [MemoryMon](https://github.com/tandasat/MemoryMon)
 [dma_ip_drivers](https://github.com/Xilinx/dma_ip_drivers)
 [pcileech](https://github.com/ufrisk/pcileech)
+[FancyCheats](https://github.com/syros156/FancyCheats)
 
 ## 动态连接库注入/Dynamic Link Library Inject
 [Kernelmode-manual-mapping-through-IAT](https://github.com/mactec0/Kernelmode-manual-mapping-through-IAT)
@@ -73,6 +77,7 @@
 [ThePerfectInjector](https://github.com/can1357/ThePerfectInjector)
 [injdrv](https://github.com/wbenny/injdrv)
 [MemoryModule](https://github.com/fancycode/MemoryModule)
+[umap](https://github.com/btbd/umap)
 
 ## 内核回调/Kernel Callback
 [ObRegisterCallBacksByPass](https://github.com/zhuhuibeishadiao/ObRegisterCallBacksByPass)
@@ -83,6 +88,7 @@
 [ExecutiveCallbackObjects](https://github.com/0xcpu/ExecutiveCallbackObjects)
 [kmexts](https://github.com/OSRDrivers/kmexts)
 [cbtest](https://github.com/swwwolf/cbtest)
+[CheekyBlinder](https://github.com/br-sn/CheekyBlinder)
 
 ## 内核框架/Kernel Framework
 [Kernel-Hijack](https://github.com/SamLarenN/Kernel-Hijack)
@@ -95,6 +101,10 @@
 [dwm_overlay](https://github.com/wongfei/dwm_overlay)
 [dxgkrnl_hook](https://github.com/vmcall/dxgkrnl_hook)
 [window_hijack](https://github.com/thesecretclub/window_hijack)
+[aero-overlay](https://github.com/ReactiioN1337/aero-overlay)
+[DX9-Overlay-API](https://github.com/agrippa1994/DX9-Overlay-API)
+[nvidia-overlay-hijack](https://github.com/iraizo/nvidia-overlay-hijack)
+[GH_D3D11_Hook](https://github.com/guided-hacking/GH_D3D11_Hook)
 
 ## capcom利用/Capcom Exploit
 [SafeMapper](https://github.com/thomhughes/SafeMapper)
@@ -106,9 +116,6 @@
 [pplib](https://github.com/notscimmy/pplib)
 [libcapcom](https://github.com/notscimmy/libcapcom)
 [libelevate](https://github.com/notscimmy/libelevate)
-
-## speedfan利用/Speedfan Exploit
-[SpeedFan-Exploit](https://github.com/SamLarenN/SpeedFan-Exploit)
 
 ## cpuz利用/Cpuz Exploit
 [CPUZ-DSEFix](https://github.com/SamLarenN/CPUZ-DSEFix)
@@ -157,14 +164,15 @@
 [shootergame-Hack](https://github.com/jguo52/shootergame-Hack)
 [UE4Dumper](https://github.com/kp7742/UE4Dumper)
 [UnrealEngineSDKGenerator](https://github.com/polivilas/UnrealEngineSDKGenerator)
-
-## 腾讯保护/Tencent Protect
-[SecondProcess](https://github.com/grace2017/SecondProcess)
+[Unreal-Finder-Tool](https://github.com/CorrM/Unreal-Finder-Tool)
+[UE4-c-](https://github.com/RampageMod/UE4-c-)
 
 ## 应用层挂钩/User Mode Hook
 [ColdHook](https://github.com/Rat431/ColdHook)
 [Detours](https://github.com/microsoft/Detours)
 [minhook](https://github.com/TsudaKageyu/minhook)
+[PolyHook](https://github.com/stevemk14ebr/PolyHook)
+[PolyHook 2.0](https://github.com/stevemk14ebr/PolyHook_2_0)
 
 ## 内核层挂钩/Kernel Mode Hook
 [HookLib](https://github.com/HoShiMin/HookLib)
@@ -198,19 +206,23 @@
 ## 驱动痕迹/Drive Trace
 [TraceCleaner](https://github.com/BadPlayer555/TraceCleaner)
 
+## 内存模式匹配/Memory Pattern Matching
+[x64_AOB_Search](https://github.com/wanttobeno/x64_AOB_Search)
+
+## PatchGuard
+[WindowsD](https://github.com/katlogic/WindowsD)
+[FuckPg](https://github.com/h4xu3lyn/FuckPg)
+[findpg](https://github.com/tandasat/findpg)
+[PatchGuardResearch](https://github.com/zhuhuibeishadiao/PatchGuardResearch)
+[Sunstrider](https://github.com/MeeSong/Sunstrider)
+[PgResarch](https://github.com/tandasat/PgResarch)
+
 ## BattlEye
 [Splendid Implanter](https://github.com/haram/splendid_implanter)
 [BattlEye](https://github.com/Schnocker/NoEye)
 [BE-Bypass](https://github.com/UCRaptor/BE-Bypass)
 [BEDaisy](https://github.com/Aki2k/BEDaisy)
 [BottlEye](https://github.com/loqix/BottlEye)
-
-## UEFI
-[umap](https://github.com/btbd/umap)
-[dreamboot](https://github.com/quarkslab/dreamboot)
-
-## IDA plugin
-[SigMaker-x64](https://github.com/ajkhoury/SigMaker-x64)
 
 ## EasyAntiCheat
 [EAC_dbp](https://github.com/Schnocker/EAC_dbp)
@@ -231,6 +243,7 @@
 
 ## 逃离塔克夫/Escape from Tarkov
 [Nathans-Tarkov-Radar-Public](https://github.com/CplNathan/Nathans-Tarkov-Radar-Public)
+[EnvyEFT](https://github.com/MadJayQ/EnvyEFT)
 
 ## 反恐精英:全球攻势/Counterstrike Global Offensive
 [Osiris](https://github.com/danielkrupinski/Osiris)
@@ -243,21 +256,30 @@
 [Gladiatorcheatz-v2.1](https://github.com/sstokic-tgm/Gladiatorcheatz-v2.1)
 [master-guide](https://github.com/csgohacks/master-guide)
 [hazedumper](https://github.com/frk1/hazedumper/blob/master/csgo.hpp)
+[csgo-dma-overlay](https://github.com/slack69/csgo-dma-overlay)
 
 ## Apex英雄/Apex legends
 [ApexGaming.py](https://github.com/AnusReaper/ApexGaming.py)
 [EzApexDMAAimbot](https://github.com/Y33Tcoder/EzApexDMAAimbot)
 [AnotherApexDebug](https://github.com/luciouskami/AnotherApexDebug)
 [apex_dma_kvm_pub](https://github.com/MisterY52/apex_dma_kvm_pub)
+[Direct-EFI-Apex-Cheat](https://github.com/TheCruZ/Direct-EFI-Apex-Cheat)
+[apexbot](https://github.com/CasualX/apexbot)
 
 ## 侠盗猎车手5/Grand Theft Auto V
 [gta5_cheats_1.50](https://github.com/FiYHer/gta5_cheats_1.50)
 [pHake](https://github.com/xhz8s/pHake)
 [subVerison_GTAV_Hack](https://github.com/AmazingPP/subVerison_GTAV_Hack)
 [GTA5_Cheats_Native_Menu](https://github.com/expvintl/GTA5_Cheats_Native_Menu)
+[GrandTheftAutoV-Cheat](https://github.com/HowYouDoinMate/GrandTheftAutoV-Cheat)
+
+## 绝地求生/Pubg
+[Pubg-internal-sdk](https://github.com/GuzeyA/Pubg-internal-sdk)
 
 ## 和平精英/Pubg Mobile
 [pubg_mobile_memory_hacking_examples](https://github.com/atiksoftware/pubg_mobile_memory_hacking_examples)
+[pubg_mobile_memory_hacking](https://github.com/atulkunal999/pubg_mobile_memory_hacking)
+[PUBGM-ESP-AIMBOT](https://github.com/7AM7/PUBGM-ESP-AIMBOT)
 
 ## 彩虹六号/Tom Clancy's Rainbow Six Siege
 [r6s-external-nuklear-hook](https://github.com/alxbrn/r6s-external-nuklear-hook)
@@ -268,6 +290,8 @@
 
 ## 相关网站
 [ 一号选手 - 英文 ](https://www.unknowncheats.me/forum/index.php)
+
 [ 二号选手 - 英文 ](https://guidedhacking.com/)
+
 [ 三号选手 - 英文 ](https://void.to)
 
