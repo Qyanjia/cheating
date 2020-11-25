@@ -50,19 +50,19 @@ public:
 
 	/* 32位的模式查找 */
 	VOID PatternSearchX32(
-		BYTE* Pattern,										// 模式
-		DWORD PatternSize,							// 模式大小
-		std::vector<DWORD64>& Result,		// 查找结果
-		DWORD64 StartAddr = 0x00010000,	// 查找的开始地址
-		DWORD64 StopAddr = 0x7ffeffff);		// 查找的结束地址
+		BYTE* Pattern,											// 模式
+		DWORD PatternSize,								// 模式大小
+		std::vector<DWORD64>& Result,			// 查找结果
+		DWORD64 StartAddr = 0x00010000,		// 查找的开始地址
+		DWORD64 StopAddr = 0xFFFFFFFF);		// 查找的结束地址
 
 	/* 64位的模式查找 */
 	VOID PatternSearchX64(
-		BYTE* Pattern,														// 模式
-		DWORD PatternSize,											// 模式大小
-		std::vector<DWORD64>& Result,						// 查找结果
-		DWORD64 StartAddr = 0x0000000000010000,		// 查找的开始地址
-		DWORD64 StopAddr = 0x00007ffffffeffff);			// 查找的结束地址
+		BYTE* Pattern,															// 模式
+		DWORD PatternSize,												// 模式大小
+		std::vector<DWORD64>& Result,							// 查找结果
+		DWORD64 StartAddr = 0x0000000000010000,			// 查找的开始地址
+		DWORD64 StopAddr = 0x00007FFFFFFFFFFF);			// 查找的结束地址
 
 	/* 读取字符串 */
 	CHAR* ReadCharStr(DWORD64 Addr, DWORD Size);
