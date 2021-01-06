@@ -3,9 +3,8 @@
 <h1 align="center">
   <br>
   <a href="">
-  <img src="https://i.ibb.co/x78qTvr/image.png" height="300">
+  <img src="https://i.ibb.co/ZV1Hfpj/OIP.png" height="300">
   </a>
-  <br>哼！雕虫小技，竟敢班门弄斧，大威天龙<br>
 </h1>
 
 ## 支持作者 :two_hearts:
