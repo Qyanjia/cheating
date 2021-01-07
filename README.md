@@ -63,7 +63,6 @@
 * [PPLKiller](https://github.com/Mattiwatti/PPLKiller)
 * [MemoryMon](https://github.com/tandasat/MemoryMon)
 * [MasterHide](https://github.com/crvvdev/MasterHide)
-* [TitanHide](https://github.com/mrexodia/TitanHide)
 * [KDU](https://github.com/hfiref0x/KDU)
 * [hidden](https://github.com/JKornev/hidden)
 * [HideDriver](https://github.com/Sqdwr/HideDriver)
@@ -167,11 +166,13 @@
 <details>
 
 * [ScyllaHide](https://github.com/x64dbg/ScyllaHide)
+* [TitanHide](https://github.com/mrexodia/TitanHide)
 * [Mirage](https://github.com/stonedreamforest/Mirage)
 * [Anti-debug](https://github.com/jguo52/Anti-debug)
 * [Anti-Anti-Debug](https://github.com/jguo52/Anti-Anti-Debug)
 * [al-khaser](https://github.com/LordNoteworthy/al-khaser)
 * [Kernel-Anit-Anit-Debug-Plugins](https://github.com/DragonQuestHero/Kernel-Anit-Anit-Debug-Plugins)
+* [XAntiDebug](https://github.com/strivexjun/XAntiDebug)
 </details>
 
 ## 字符串加密|String Encryption
