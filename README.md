@@ -1,10 +1,7 @@
 # 前言
 
 <h1 align="center">
-  <br>
-  <a href="">
-  <img src="https://i.ibb.co/ZV1Hfpj/OIP.png" height="300">
-  </a>
+  <a><img src="https://i.ibb.co/ZV1Hfpj/OIP.png" height="300"></a>
 </h1>
 
 ## 支持作者 :two_hearts:
@@ -31,6 +28,8 @@
 * [HWIDbypass](https://github.com/yunseok/HWIDbypass)
 * [NULL-CPP-SPOOFER](https://github.com/Xiloe/NULL-CPP-SPOOFER)
 * [hwid_spoofer](https://github.com/haram/hwid_spoofer)
+* [GetHDDSerial](https://github.com/Alex3434/GetHDDSerial)
+* [hwid-spoofer](https://github.com/fengjixuchui/hwid-spoofer)
 </details>
 
 ## 脆弱驱动|Vulnerable Driver
@@ -71,6 +70,8 @@
 * [HideDriver](https://github.com/nbqofficial/HideDriver)
 * [WinObjEx64](https://github.com/hfiref0x/WinObjEx64)
 * [TraceCleaner](https://github.com/BadPlayer555/TraceCleaner)
+* [Win_Rootkit](https://github.com/alal4465/Win_Rootkit)
+* [MemScanner](https://github.com/FaEryICE/MemScanner)
 </details>
 
 ## UEFI
@@ -94,7 +95,9 @@
 * [Blackbone](https://github.com/DarthTon/Blackbone)
 * [Kernel-Bridge](https://github.com/HoShiMin/Kernel-Bridge)
 * [norsefire](https://github.com/nbqofficial/norsefire)
+* [Full-Kernel-Driver](https://github.com/unmaewei/Full-Kernel-Driver)
 * [memdrv](https://github.com/SamuelTulach/memdrv)
+* [kernerldriverandclient](https://github.com/pakeke801/kernerldriverandclient)
 * [MdlReadWriteProcess-MDL](https://github.com/rring0/MdlReadWriteProcess-MDL-)
 * [BOOM](https://github.com/zoand/BOOM)
 * [CTL-hook](https://github.com/jguo52/IOCTL-hook)
@@ -114,6 +117,11 @@
 * [ThePerfectInjector](https://github.com/can1357/ThePerfectInjector)
 * [injdrv](https://github.com/wbenny/injdrv)
 * [MemoryModule](https://github.com/fancycode/MemoryModule)
+* [GInjer](https://github.com/Vicshann/GInjer)
+* [AheadLib-x86-x64](https://github.com/strivexjun/AheadLib-x86-x64)
+* [SuperDllHijack](https://github.com/anhkgg/SuperDllHijack)
+* [CowInjecter](https://github.com/huoji120/CowInjecter)
+* [face-injector-v2](https://github.com/KANKOSHEV/face-injector-v2)
 </details>
 
 ## 内核回调|Kernel Callback
@@ -141,6 +149,7 @@
 * [DX9-Overlay-API](https://github.com/agrippa1994/DX9-Overlay-API)
 * [nvidia-overlay-hijack](https://github.com/iraizo/nvidia-overlay-hijack)
 * [GH_D3D11_Hook](https://github.com/guided-hacking/GH_D3D11_Hook)
+* [dwmhook](https://github.com/bobberman/dwmhook)
 </details>
 
 ## 应用层技巧|Application Layer Skills
@@ -161,6 +170,8 @@
 * [Mirage](https://github.com/stonedreamforest/Mirage)
 * [Anti-debug](https://github.com/jguo52/Anti-debug)
 * [Anti-Anti-Debug](https://github.com/jguo52/Anti-Anti-Debug)
+* [al-khaser](https://github.com/LordNoteworthy/al-khaser)
+* [Kernel-Anit-Anit-Debug-Plugins](https://github.com/DragonQuestHero/Kernel-Anit-Anit-Debug-Plugins)
 </details>
 
 ## 字符串加密|String Encryption
@@ -277,6 +288,7 @@
 * [fortnite-cheat-source-public](https://github.com/Joona70/fortnite-cheat-source-public)
 * [FortniteCheatSource](https://github.com/ytmcgamer/FortniteCheatSource)
 * [Fortnite-Offsets](https://github.com/static-memory/Fortnite-Offsets)
+* [FortniteCheatSRCUpdateEveryUpdate](https://github.com/Visual9999/FortniteCheatSRCUpdateEveryUpdate)
 </details>
 
 ## 逃离塔克夫|Escape from Tarkov
@@ -300,6 +312,7 @@
 * [master-guide](https://github.com/csgohacks/master-guide)
 * [hazedumper](https://github.com/frk1/hazedumper/blob/master/csgo.hpp)
 * [csgo-dma-overlay](https://github.com/slack69/csgo-dma-overlay)
+* [csgo-external-radar](https://github.com/ryanocf/csgo-external-radar)
 </details>
 
 ## Apex英雄|Apex Legends
@@ -311,6 +324,7 @@
 * [apex_dma_kvm_pub](https://github.com/MisterY52/apex_dma_kvm_pub)
 * [Direct-EFI-Apex-Cheat](https://github.com/TheCruZ/Direct-EFI-Apex-Cheat)
 * [apexbot](https://github.com/CasualX/apexbot)
+* [LeagueDumper](https://github.com/tarekwiz/LeagueDumper)
 </details>
 
 ## 侠盗猎车手5|Grand Theft Auto V
@@ -321,6 +335,19 @@
 * [subVerison_GTAV_Hack](https://github.com/AmazingPP/subVerison_GTAV_Hack)
 * [GTA5_Cheats_Native_Menu](https://github.com/expvintl/GTA5_Cheats_Native_Menu)
 * [GrandTheftAutoV-Cheat](https://github.com/HowYouDoinMate/GrandTheftAutoV-Cheat)
+</details>
+
+## 战区|Call Of Duty: Modern Warfare
+<details>
+
+* [Warzone-Helper](https://github.com/atheleon/Warzone-Helper)
+* [MW-Decryption](https://github.com/moleskn/MW-Decryption)
+</details>
+
+## 英雄联盟|League Of Legends
+<details>
+
+* [league-skin-changer](https://github.com/pakeke801/league-skin-changer)
 </details>
 
 ## 绝地求生|PLAYERUNKNOWN’S BATTLEGROUNDS
@@ -345,6 +372,8 @@
 * [Internal-Rainbow-Six-Cheat](https://github.com/NMan1/Internal-Rainbow-Six-Cheat)
 * [OverflowR6V2](https://github.com/NMan1/OverflowR6V2)
 * [RainbowSixDmaKvm](https://github.com/WCharacter/RainbowSixDmaKvm)
+* [RainbowSixDMA](https://github.com/tobnap/RainbowSixDMA)
+* [R6Updater](https://github.com/Kix48/R6Updater)
 </details>
 
 ## 相关网站|More Knowledge
